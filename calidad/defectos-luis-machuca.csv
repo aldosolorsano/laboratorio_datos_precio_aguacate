@@ -1,0 +1,5 @@
+id,fecha,fase_origen,fase_deteccion,tipo,descripcion,tiempo_correccion_min
+D01,2026-11-07,planeacion,analisis,logica,La pregunta inicial sobre prediccion a 24 horas no tenia utilidad practica para empaque; se corrigio el horizonte a 4-8 semanas segun la entrevista,20
+D02,2026-11-08,diseno,investigacion,datos,La serie de INEGI de aguacate es mensual y no permitia granularidad para series de tiempo diarias; se decidio priorizar SNIIM para precios y dejar INEGI como referencia macro,25
+D03,2026-11-08,investigacion,documentacion,datos,Open-Meteo Archive API tiene un desfase de 5 a 7 dias respecto al tiempo real; se parametrizo la fecha final para evitar peticiones invalidas de dias futuros,15
+D04,2026-11-09,documentacion,documentacion,documentacion,Discrepancia en el conteo de periodos minimos requeridos; se audito data/bronce validando 1402 periodos de clima, 967 de Banxico y 21834 registros de SNIIM,20

@@ -1,0 +1,6 @@
+id,fecha,fase_origen,fase_deteccion,tipo,descripcion,tiempo_correccion_min
+D01,2026-11-08,codigo,pruebas,datos,Banxico fallo por falta de token en entorno local; se agrego validacion amigable de variable BANXICO_TOKEN,15
+D02,2026-11-08,configuracion,pruebas,configuracion,GitHub Actions no reconocia secrets.BANXICO_TOKEN por error en nombre del secret,10
+D03,2026-11-09,diseno,codigo,logica,El formulario ASP.NET de SNIIM requeria ViewState y EventValidation dinamico no reproducible por simple requests; se migro a Playwright headless,45
+D04,2026-11-09,codigo,pruebas,datos,Paginacion de SNIIM se salia de resultados al hacer clic en selector incorrecto; se filtro por botones de imagen siguiente,30
+D05,2026-11-09,configuracion,pruebas,configuracion,Playwright fallaba en GitHub Actions por falta de binarios de Chromium; se anadio paso de instalacion con dependencias de sistema,20

@@ -1,0 +1,10 @@
+fecha,fase,actividad,inicio,fin,interrupcion_min,delta_min
+2026-11-08,planeacion,Definicion de arquitectura de extractores y estructura de carpetas Bronce,15:00,16:30,10,80
+2026-11-08,diseno,Modelado del flujo de captura de Banxico y Open-Meteo,16:45,18:00,0,75
+2026-11-08,codigo,Implementacion inicial de extractor Open-Meteo y Banxico SIE API,18:15,20:45,15,135
+2026-11-08,pruebas,Prueba de persistencia de JSON crudos en data/bronce y conteo de periodos,21:00,22:15,0,75
+2026-11-08,configuracion,Creacion de workflow captura.yml en GitHub Actions y configuracion de secrets,22:30,23:30,5,55
+2026-11-09,investigacion,Inspeccion de formulario ASP.NET y ViewState de SNIIM,08:30,10:00,10,80
+2026-11-09,codigo,Desarrollo de extractor SNIIM con Playwright y paginacion de resultados,10:15,13:00,15,150
+2026-11-09,pruebas,Descarga de historico 3 anos de SNIIM y verificacion de robots.txt,13:15,14:30,0,75
+2026-11-09,configuracion,Creacion y depuracion de workflow captura-sniim.yml en GitHub Actions,14:45,15:45,5,55
