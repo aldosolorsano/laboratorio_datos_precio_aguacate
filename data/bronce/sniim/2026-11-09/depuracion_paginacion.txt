@@ -1,0 +1,6 @@
+{'tag': 'INPUT', 'id': 'ibtnAnterior', 'name': 'ibtnAnterior', 'alt': '', 'title': '', 'src': 'https://www.economia-sniim.gob.mx/nuevo/Diseno/Imagenes/botAnterior.gif', 'href': ''}
+{'tag': 'INPUT', 'id': 'ibtnSiguiente', 'name': 'ibtnSiguiente', 'alt': '', 'title': '', 'src': 'https://www.economia-sniim.gob.mx/nuevo/Diseno/Imagenes/botSiguiente.gif', 'href': ''}
+{'tag': 'INPUT', 'id': 'ibtnAnterior2', 'name': 'ibtnAnterior2', 'alt': '', 'title': '', 'src': 'https://www.economia-sniim.gob.mx/nuevo/Diseno/Imagenes/botAnterior.gif', 'href': ''}
+{'tag': 'INPUT', 'id': 'ibtnSiguiente2', 'name': 'ibtnSiguiente2', 'alt': '', 'title': '', 'src': 'https://www.economia-sniim.gob.mx/nuevo/Diseno/Imagenes/botSiguiente.gif', 'href': ''}
+{'tag': 'A', 'id': '', 'name': '', 'alt': '', 'title': '', 'src': '', 'href': 'javascript:history.back(-1);'}
+{'tag': 'INPUT', 'id': 'InfLinksEncuesta1_imgEncuesta', 'name': 'InfLinksEncuesta1$imgEncuesta', 'alt': '', 'title': '', 'src': 'https://www.economia-sniim.gob.mx/nuevo/Diseno/Imagenes/botEncuesta.gif', 'href': ''}

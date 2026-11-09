@@ -21,6 +21,11 @@ jobs:
         env:
           BANXICO_TOKEN: ${{ secrets.BANXICO_TOKEN }}
         run: python src/extractores/banxico.py
+      - name: INEGI
+        env:
+          INEGI_TOKEN: ${{ secrets.INEGI_TOKEN }}
+          INEGI_INDICADOR: ${{ secrets.INEGI_INDICADOR }}
+        run: python src/extractores/inegi.py
       - name: Guardar datos en el repo
         run: |
           git config user.name "github-actions[bot]"
