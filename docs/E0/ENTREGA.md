@@ -4,6 +4,7 @@
 - **Integrantes:** 
   - Aldo Israel Solórzano Sánchez
   - Luis Fernando Machuca Carrillo
+  - Elias Melendez Guzman
 - **Repositorio:** [https://github.com/aldosolorsano/laboratorio_datos_precio_aguacate](https://github.com/aldosolorsano/laboratorio_datos_precio_aguacate)
 - **Tag de entrega:** `e0`
 - **Profesores agregados como colaboradores:** [x] Joel  [x] Isis  [x] Roman
