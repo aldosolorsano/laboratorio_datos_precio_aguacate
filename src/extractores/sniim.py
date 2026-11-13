@@ -8,6 +8,7 @@ Variables de entorno opcionales:
   SNIIM_DESDE  fecha inicial AAAA-MM-DD (por defecto: hoy - 60 dias)
   SNIIM_HASTA  fecha final   AAAA-MM-DD (por defecto: hoy)
   SNIIM_HEADED 1 para ver el navegador (depuracion local)
+  SNIIM_BROWSER_CHANNEL canal de Playwright opcional, por ejemplo msedge
 
 Carga historica inicial (una vez, en tu compu):
   SNIIM_DESDE=2023-11-09 python src/extractores/sniim.py
@@ -20,6 +21,8 @@ import sys
 import time
 import urllib.robotparser
 
+import requests
+from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import sync_playwright
 
 BASE = "https://www.economia-sniim.gob.mx"
@@ -30,19 +33,19 @@ PRODUCTO = "133"   # Aguacate Hass - Primera
 PAUSA = 3          # segundos entre acciones (trato amable al sitio)
 VENTANA_DIAS = 180
 RE_PAG = re.compile(r"P[áa]gina\s+(\d+)\s+de\s+(\d+)", re.I)
-SIGUIENTE = [
-    "[id*='iguiente' i]", "[id*='next' i]", "[id*='adelante' i]",
-    "[alt*='iguiente' i]", "[title*='iguiente' i]", "[alt*='next' i]",
-    "[id*='Sig' i]",
-]
+
+
+class ConsultaIncompleta(RuntimeError):
+    """No se pudo verificar la secuencia completa de resultados."""
 
 
 def robots_ok(out):
     rp = urllib.robotparser.RobotFileParser()
     rp.set_url(BASE + "/robots.txt")
-    rp.read()
-    import requests
-    txt = requests.get(BASE + "/robots.txt", headers={"User-Agent": UA}, timeout=30).text
+    respuesta = requests.get(rp.url, headers={"User-Agent": UA}, timeout=30)
+    respuesta.raise_for_status()
+    txt = respuesta.text
+    rp.parse(txt.splitlines())
     (out / "robots.txt").write_text(txt, encoding="utf-8")
     return rp.can_fetch(UA, FORM)
 
@@ -56,74 +59,54 @@ def ventanas(desde, hasta):
 
 
 def pagina_actual(page):
-    m = RE_PAG.search(page.inner_text("body"))
+    marcador = page.locator("#lblPaginacion")
+    m = RE_PAG.search(marcador.inner_text()) if marcador.count() else None
     return (int(m.group(1)), int(m.group(2))) if m else (None, None)
 
 
-EXCLUIR = re.compile(r"regresar|home|buscar|menuencabezado|calendario|excel|imprimir", re.I)
-PREFERIR = re.compile(r"sig|next|adel|forward|der", re.I)
+def guardar_paginas(page, ini, fin, out):
+    n, total = pagina_actual(page)
+    if n != 1 or not total or total < 1:
+        raise ConsultaIncompleta("SNIIM no confirmó la primera página de resultados")
+
+    paginas = []
+    for esperada in range(1, total + 1):
+        if esperada > 1:
+            time.sleep(PAUSA)
+            try:
+                page.locator("#ibtnSiguiente").click(timeout=15000, no_wait_after=True)
+                page.wait_for_function(
+                    r"""n => new RegExp('P[áa]gina\\s+' + n + '\\s+de', 'i')
+                        .test(document.querySelector('#lblPaginacion')?.textContent || '')""",
+                    arg=esperada,
+                    timeout=15000,
+                )
+            except PlaywrightError as error:
+                raise ConsultaIncompleta(
+                    f"se verificaron {len(paginas)}/{total} páginas. "
+                    f"No se pudo llegar a la página {esperada}"
+                ) from error
+        actual = pagina_actual(page)
+        if actual != (esperada, total) or page.locator("#tblResultados").count() != 1:
+            raise ConsultaIncompleta(
+                f"se verificaron {len(paginas)}/{total} páginas. "
+                f"Marcador o tabla inesperados en la página {esperada}: {actual}"
+            )
+        paginas.append(page.content())
+        print(f"[{ini} a {fin}] página {esperada} de {total}", flush=True)
+
+    prefijo = f"aguacate_hass_primera_{ini}_{fin}_p"
+    escritas = set()
+    for numero, contenido in enumerate(paginas, start=1):
+        ruta = out / f"{prefijo}{numero:02d}.html"
+        ruta.write_text(contenido, encoding="utf-8")
+        escritas.add(ruta)
+    for ruta in set(out.glob(f"{prefijo}*.html")) - escritas:
+        ruta.unlink()
+    return total
 
 
-def info(e):
-    return e.evaluate(
-        "e => ({tag:e.tagName, id:e.id, name:e.name||'', alt:e.alt||'', "
-        "title:e.title||'', src:e.src||'', href:e.href||''})")
-
-
-def candidatos(page):
-    loc = page.locator("input[type=image], a:has(img), img[onclick]")
-    res = []
-    for i in range(loc.count()):
-        e = loc.nth(i)
-        try:
-            if not e.is_visible():
-                continue
-            d = info(e)
-        except Exception:
-            continue
-        texto = " ".join(str(v) for v in d.values())
-        if EXCLUIR.search(texto):
-            continue
-        res.append((i, e, d, texto))
-    return res
-
-
-def avanzar(page, n, out):
-    """Intenta pasar a la pagina n+1 probando candidatos; devuelve el nuevo numero o None."""
-    cands = candidatos(page)
-    pref = [c for c in cands if PREFERIR.search(c[3])]
-    resto = [c for c in reversed(cands) if c not in pref]
-    for _, e, d, _t in pref + resto:
-        try:
-            e.click()
-            page.wait_for_function(
-                "n => new RegExp('P[áa]gina\\\\s+' + n + '\\\\s+de', 'i').test(document.body.innerText)",
-                arg=n + 1, timeout=10000)
-            page.wait_for_load_state("networkidle")
-            print(f"  avance con: {d}")
-            return n + 1
-        except Exception:
-            if pagina_actual(page)[0] is None:
-                print("  se salio de los resultados; se detiene")
-                return None
-            continue
-    (out / "depuracion_paginacion.txt").write_text(
-        "\n".join(str(c[2]) for c in cands), encoding="utf-8")
-    return None
-
-
-def volcar_depuracion(page, ruta):
-    filas = []
-    for sel in ("input[type=image]", "a", "img"):
-        loc = page.locator(sel)
-        for i in range(min(loc.count(), 80)):
-            e = loc.nth(i)
-            filas.append(sel + " " + str(e.evaluate(
-                "e => ({id:e.id,name:e.name,alt:e.alt,title:e.title,src:e.src,href:e.href})")))
-    ruta.write_text("\n".join(filas), encoding="utf-8")
-
-
-def consultar(page, ini, fin, out, hoy):
+def consultar(page, ini, fin, out):
     page.goto(FORM, wait_until="domcontentloaded")
     page.wait_for_selector("#ddlProducto")
     for sel, val in (("#ddlProducto", PRODUCTO), ("#ddlOrigen", "-1"),
@@ -133,29 +116,10 @@ def consultar(page, ini, fin, out, hoy):
     for sel, d in (("#txtFechaInicio", ini), ("#txtFechaFinal", fin)):
         page.eval_on_selector(sel, "(e, v) => { e.value = v; }", d.strftime("%d/%m/%Y"))
     time.sleep(PAUSA)
-    page.click("#btnBuscar")
-    page.wait_for_load_state("networkidle")
+    page.locator("#btnBuscar").click(no_wait_after=True)
+    page.locator("#lblPaginacion").wait_for(state="visible")
 
-    n, total = pagina_actual(page)
-    if n is None:
-        (out / f"sin_resultados_{ini}_{fin}.html").write_text(page.content(), encoding="utf-8")
-        print(f"[{ini} a {fin}] sin paginacion detectada (guardado para revision)")
-        return 0
-    guardadas = 0
-    while True:
-        nombre = f"aguacate_hass_primera_{ini}_{fin}_p{n:02d}.html"
-        (out / nombre).write_text(page.content(), encoding="utf-8")
-        guardadas += 1
-        print(f"[{ini} a {fin}] pagina {n} de {total}")
-        if n >= total:
-            break
-        time.sleep(PAUSA)
-        nuevo = avanzar(page, n, out)
-        if nuevo is None:
-            print("No pude avanzar de pagina; revisa depuracion_paginacion.txt")
-            break
-        n = nuevo
-    return guardadas
+    return guardar_paginas(page, ini, fin, out)
 
 
 def main():
@@ -163,20 +127,35 @@ def main():
     hasta = dt.date.fromisoformat(os.environ.get("SNIIM_HASTA", hoy.isoformat()))
     desde = dt.date.fromisoformat(
         os.environ.get("SNIIM_DESDE", (hoy - dt.timedelta(days=60)).isoformat()))
+    if desde > hasta:
+        print("SNIIM_DESDE debe ser anterior o igual a SNIIM_HASTA", file=sys.stderr)
+        return 1
     out = pathlib.Path("data/bronce/sniim") / hoy.isoformat()
     out.mkdir(parents=True, exist_ok=True)
     if not robots_ok(out):
         print("robots.txt NO permite esta ruta. Se detiene.")
         return 1
     total = 0
+    incompletas = 0
     with sync_playwright() as p:
-        b = p.chromium.launch(headless=os.environ.get("SNIIM_HEADED") != "1")
+        b = p.chromium.launch(
+            headless=os.environ.get("SNIIM_HEADED") != "1",
+            channel=os.environ.get("SNIIM_BROWSER_CHANNEL") or None,
+        )
         ctx = b.new_context(user_agent=UA)
         page = ctx.new_page()
         page.set_default_timeout(60000)
         for ini, fin in ventanas(desde, hasta):
-            total += consultar(page, ini, fin, out, hoy)
+            try:
+                total += consultar(page, ini, fin, out)
+            except (ConsultaIncompleta, PlaywrightError) as error:
+                incompletas += 1
+                print(f"Consulta incompleta [{ini} a {fin}]: {error}", file=sys.stderr)
         b.close()
+    if incompletas:
+        print(f"SNIIM: {incompletas} ventanas incompletas y {total} páginas "
+              "de ventanas completas", file=sys.stderr)
+        return 1
     print(f"OK sniim: {total} paginas guardadas en {out}")
     return 0 if total else 1
 
