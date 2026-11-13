@@ -58,8 +58,8 @@ def ventanas(desde, hasta):
         ini = fin + dt.timedelta(days=1)
 
 
-def pagina_actual(page):
-    marcador = page.locator("#lblPaginacion")
+def pagina_actual(page, selector="#lblPaginacion"):
+    marcador = page.locator(selector)
     m = RE_PAG.search(marcador.inner_text()) if marcador.count() else None
     return (int(m.group(1)), int(m.group(2))) if m else (None, None)
 
@@ -87,10 +87,15 @@ def guardar_paginas(page, ini, fin, out):
                     f"No se pudo llegar a la página {esperada}"
                 ) from error
         actual = pagina_actual(page)
-        if actual != (esperada, total) or page.locator("#tblResultados").count() != 1:
+        # La navegación inferior aparece después de la tabla. Chromium puede
+        # reconstruir etiquetas de cierre aunque la respuesta llegue cortada.
+        inferior = pagina_actual(page, "#lblPaginacion2")
+        if (actual != (esperada, total) or inferior != actual
+                or page.locator("#tblResultados").count() != 1):
             raise ConsultaIncompleta(
                 f"se verificaron {len(paginas)}/{total} páginas. "
-                f"Marcador o tabla inesperados en la página {esperada}: {actual}"
+                f"Marcadores o tabla incompletos en la página {esperada}: "
+                f"superior={actual}, inferior={inferior}"
             )
         paginas.append(page.content())
         print(f"[{ini} a {fin}] página {esperada} de {total}", flush=True)

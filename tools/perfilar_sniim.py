@@ -33,11 +33,13 @@ def leer_capturas(bronce):
             continue
         consulta, numero = coincidencia.groups()
         pagina = html.fromstring(ruta.read_text(encoding="utf-8"))
-        marcador = PAGINA.search(pagina.text_content())
+        superior = PAGINA.search(pagina.xpath('string(//*[@id="lblPaginacion"])'))
+        inferior = PAGINA.search(pagina.xpath('string(//*[@id="lblPaginacion2"])'))
         tablas = pagina.xpath('//table[@id="tblResultados"]')
-        if not marcador or int(marcador[1]) != int(numero) or len(tablas) != 1:
+        if (not superior or not inferior or superior.groups() != inferior.groups()
+                or int(superior[1]) != int(numero) or len(tablas) != 1):
             raise ValueError(f"Marcador o tabla inesperados en {ruta}")
-        consultas[ruta.parent.name, consulta][int(numero)] = int(marcador[2])
+        consultas[ruta.parent.name, consulta][int(numero)] = int(superior[2])
 
         for fila in tablas[0].xpath("./tbody/tr | ./tr"):
             celdas = fila.xpath('./td[@class="Datos2"]')

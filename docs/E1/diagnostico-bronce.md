@@ -48,7 +48,9 @@ $env:SNIIM_HASTA = '2024-05-06'
 python src/extractores/sniim.py
 ```
 
-Repetir con cada intervalo de la tabla. Una ventana se guarda cuando el marcador y la tabla se verifican para todas las páginas anunciadas. Si alguna ventana queda incompleta, el proceso devuelve código 1 y el workflow omite el paso de publicación. Los archivos recuperados quedan en la carpeta de la fecha de captura. Las carpetas anteriores sirven de evidencia del estado original.
+Repetir con cada intervalo de la tabla. Una ventana se guarda cuando los marcadores superior e inferior coinciden y la tabla está presente en todas las páginas anunciadas. Si alguna ventana queda incompleta, el proceso devuelve código 1 y el workflow omite el paso de publicación. Los archivos recuperados quedan en la carpeta de la fecha de captura. Las carpetas anteriores sirven de evidencia del estado original.
+
+El 13 de noviembre se reintentaron las cuatro ventanas. Las tres consultas históricas se detuvieron al intentar avanzar de página. En la consulta de octubre a noviembre, SNIIM devolvió dos HTML truncados que el navegador cerró automáticamente. Los dos carecían del marcador inferior y terminaban a mitad de una cotización. El extractor corregido rechazó la primera página en el siguiente intento. Esos HTML se excluyeron de bronce. También se probó el tramo del 1 al 7 de octubre, pero el navegador agotó el tiempo de espera al abrir el formulario. La recuperación de las ventanas completas sigue pendiente.
 
 ## Evidencia de fiabilidad
 
