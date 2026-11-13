@@ -22,3 +22,5 @@ El plan cubre captura, limpieza, integración y evaluación del pronóstico de p
 ## Seguridad y riesgos
 
 El workflow de validación usa permiso de solo lectura y el pipeline de análisis usa archivos locales. La captura de Banxico e INEGI obtiene sus tokens de GitHub Secrets. CI ejecuta Gitleaks sobre el historial y pip-audit sobre las dependencias de E1. Los resultados de ambos escaneos en GitHub quedan pendientes hasta ejecutar CI. Los riesgos inmediatos son las respuestas truncadas de SNIIM y un tramo de datos demasiado corto para estimar estacionalidad anual.
+
+El respaldo del commit c703ec7 se exportó con git archive, se restauró en otra carpeta y se ejecutaron el pipeline y el laboratorio. El SHA-256 de evaluacion.json coincidió con el de la ejecución original (F089A80B5A00679C876AEDA89011A49C1964A66BDED157919EDF701783DBF744).
