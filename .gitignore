@@ -1,3 +1,6 @@
 __pycache__/
 .venv/
 .env
+data/plata/
+data/oro/
+data/cuarentena/
