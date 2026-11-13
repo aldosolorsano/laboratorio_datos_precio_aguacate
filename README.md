@@ -5,6 +5,7 @@ Arquitectura por capas: Bronce (crudo) → Plata (limpio) → Oro (modelado).
 
 ## Estado
 - E0: capa Bronce con captura automática (GitHub Actions).
+- E1: pipeline reproducible y evaluación de cobertura. Ver [ficha de trabajo](docs/E1/ENTREGA.md).
 
 ## Uso local
 ```bash

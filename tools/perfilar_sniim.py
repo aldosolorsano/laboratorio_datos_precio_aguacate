@@ -22,8 +22,9 @@ MERCADOS = (
 )
 
 
-def leer_capturas(bronce):
+def leer_capturas(bronce, solo_completas=False):
     consultas = defaultdict(dict)
+    filas_por_consulta = defaultdict(list)
     cotizaciones = {}
     total_filas = 0
     for ruta in sorted(bronce.glob("*/*.html")):
@@ -39,7 +40,8 @@ def leer_capturas(bronce):
         if (not superior or not inferior or superior.groups() != inferior.groups()
                 or int(superior[1]) != int(numero) or len(tablas) != 1):
             raise ValueError(f"Marcador o tabla inesperados en {ruta}")
-        consultas[ruta.parent.name, consulta][int(numero)] = int(superior[2])
+        clave = ruta.parent.name, consulta
+        consultas[clave][int(numero)] = int(superior[2])
 
         for fila in tablas[0].xpath("./tbody/tr | ./tr"):
             celdas = fila.xpath('./td[@class="Datos2"]')
@@ -48,6 +50,13 @@ def leer_capturas(bronce):
             if len(celdas) != 8:
                 raise ValueError(f"Se esperaban ocho celdas de cotización en {ruta}")
             valores = tuple(" ".join(celda.text_content().split()) for celda in celdas)
+            filas_por_consulta[clave].append((valores, ruta))
+    for clave, filas in filas_por_consulta.items():
+        paginas = consultas[clave]
+        total = paginas.get(1, 0)
+        if solo_completas and paginas != dict.fromkeys(range(1, total + 1), total):
+            continue
+        for valores, ruta in filas:
             cotizaciones.setdefault(valores, ruta)
             total_filas += 1
     if not cotizaciones:

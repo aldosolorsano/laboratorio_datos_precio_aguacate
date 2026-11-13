@@ -44,11 +44,11 @@ SNIIM_DESDE=2023-11-09 python src/extractores/sniim.py
 
 | Entregable | Ubicación en el Repositorio | Estado | Detalle |
 |---|---|:---:|---|
-| **Propuesta del Observatorio (3-5 págs)** | [docs/E0/propuesta.md](file:///home/luisfernando/proyectos/laboratorio_datos_precio_aguacate/docs/E0/propuesta.md) | [x] Completo | Ficha técnica, entrevista de campo (32 min con Ing. Salvador Mendoza), 3 preguntas analíticas (E1, E2, E3), plan de datos y análisis ético/legal. |
-| **Extractores Éticos de Datos** | [src/extractores/](file:///home/luisfernando/proyectos/laboratorio_datos_precio_aguacate/src/extractores/) | [x] Completo | Implementados `openmeteo.py`, `banxico.py`, `sniim.py` (Playwright) e `inegi.py`. User-Agent explícito y pausas de cortesía. |
-| **Workflows Automáticos (CI/CD)** | [.github/workflows/](file:///home/luisfernando/proyectos/laboratorio_datos_precio_aguacate/.github/workflows/) | [x] Completo | `captura.yml` (diario a las 12:00 UTC) y `captura-sniim.yml` (semanal / manual dispatch con Playwright headless). |
-| **Datos Crudos en Capa Bronce ($\ge 36$ periodos)** | [data/bronce/](file:///home/luisfernando/proyectos/laboratorio_datos_precio_aguacate/data/bronce/) | [x] Completo | Más de 1,400 periodos de clima, 967 de Banxico y 21,834 registros históricos de precios en 45 HTMLs de SNIIM. |
-| **Sistema de Calidad Inicial (PSP)** | [calidad/](file:///home/luisfernando/proyectos/laboratorio_datos_precio_aguacate/calidad/) | [x] Completo | Registros abiertos de tiempo y defectos por cada integrante (`aldo-solorzano` y `luis-machuca`), más 3 objetivos medibles. |
+| **Propuesta del Observatorio (3-5 págs)** | [docs/E0/propuesta.md](propuesta.md) | [x] Completo | Ficha técnica, entrevista de campo (32 min con Ing. Salvador Mendoza), 3 preguntas analíticas (E1, E2, E3), plan de datos y análisis ético/legal. |
+| **Extractores Éticos de Datos** | [src/extractores/](../../src/extractores/) | [x] Completo | Implementados `openmeteo.py`, `banxico.py`, `sniim.py` (Playwright) e `inegi.py`. User-Agent explícito y pausas de cortesía. |
+| **Workflows Automáticos (CI/CD)** | [.github/workflows/](../../.github/workflows/) | [x] Completo | `captura.yml` (diario a las 12:00 UTC) y `captura-sniim.yml` (semanal / manual dispatch con Playwright headless). |
+| **Datos Crudos en Capa Bronce ($\ge 36$ periodos)** | [data/bronce/](../../data/bronce/) | [x] Completo | Más de 1,400 periodos de clima, 967 de Banxico y 21,834 registros históricos de precios en 45 HTMLs de SNIIM. |
+| **Sistema de Calidad Inicial (PSP)** | [calidad/](../../calidad/) | [x] Completo | Registros abiertos de tiempo y defectos por cada integrante (`aldo-solorzano` y `luis-machuca`), más 3 objetivos medibles. |
 
 ---
 
@@ -71,5 +71,7 @@ SNIIM_DESDE=2023-11-09 python src/extractores/sniim.py
 
 ## Estado Actual y Próximos Pasos
 
-- **Pendientes resueltos en E0:** Se superó el reto técnico del formulario ASP.NET de SNIIM mediante automatización con Playwright en GitHub Actions, logrando descargar exitosamente la serie histórica de 3 años.
+La [revisión de bronce](../E1/diagnostico-bronce.md) identificó cuatro ventanas de SNIIM con páginas faltantes. La captura ahora verifica la secuencia anunciada y los dos marcadores de página. La recuperación de esas ventanas sigue pendiente. El tag `e0` identifica la entrega original.
+
+- **Avance de E0:** Se automatizó la consulta del formulario ASP.NET de SNIIM con Playwright y se guardaron observaciones de un intervalo de tres años.
 - **Preparación para E1:** Comenzar la limpieza, estandarización de variables y estructuración de la Capa Plata (`data/plata/`) en formato Apache Parquet para el entrenamiento de los modelos predictivos iniciales.
