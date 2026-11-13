@@ -21,4 +21,4 @@ El plan cubre captura, limpieza, integración y evaluación del pronóstico de p
 
 ## Seguridad y riesgos
 
-El workflow de validación usa permiso de solo lectura y el pipeline de análisis usa archivos locales. La captura de Banxico e INEGI obtiene sus tokens de GitHub Secrets. Queda pendiente verificar el historial con Gitleaks, auditar las dependencias con pip-audit y adjuntar la prueba de restauración. Los riesgos inmediatos son las respuestas truncadas de SNIIM y un tramo de datos demasiado corto para estimar estacionalidad anual. Se registran como limitaciones de la entrega.
+El workflow de validación usa permiso de solo lectura y el pipeline de análisis usa archivos locales. La captura de Banxico e INEGI obtiene sus tokens de GitHub Secrets. CI ejecuta Gitleaks sobre el historial y pip-audit sobre las dependencias de E1. Los resultados de ambos escaneos en GitHub quedan pendientes hasta ejecutar CI. Los riesgos inmediatos son las respuestas truncadas de SNIIM y un tramo de datos demasiado corto para estimar estacionalidad anual.

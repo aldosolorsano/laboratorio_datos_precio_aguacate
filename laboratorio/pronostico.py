@@ -14,7 +14,8 @@ from statsmodels.tsa.stattools import acf, adfuller, pacf
 
 
 HORIZONTE = 8
-PERIODO = 13  # Hipótesis trimestral exploratoria, en semanas.
+PERIODO = 4  # Ciclo exploratorio de cuatro semanas, sin asumir un ciclo anual.
+MIN_ENTRENAMIENTO = 16
 ORDENES = ((0, 0), (1, 0), (0, 1), (1, 1))
 
 
@@ -24,9 +25,11 @@ def bloques(tabla):
 
 
 def evaluar(mercado, tabla):
+    if "dias_cotizados" in tabla and tabla["dias_cotizados"].iloc[-1] < 3 and len(tabla) > 1:
+        tabla = tabla.iloc[:-1]
     bloque = max(bloques(tabla), key=len)
-    if len(bloque) < 2 * PERIODO + HORIZONTE:
-        minimo = 2 * PERIODO + HORIZONTE
+    if len(bloque) < MIN_ENTRENAMIENTO + HORIZONTE:
+        minimo = MIN_ENTRENAMIENTO + HORIZONTE
         return {"mercado": mercado, "estado": "Bloque continuo insuficiente",
                 "semanas_contiguas": len(bloque), "semanas_minimas": minimo,
                 "bloque_inicio": bloque["semana"].iloc[0].date().isoformat(),
@@ -64,12 +67,15 @@ def evaluar(mercado, tabla):
             "mape_pct": float(100 * np.mean(np.abs(error / prueba.to_numpy()))),
         }
         predicciones[nombre] = pronostico
+    referencia = np.repeat(entrenamiento.iloc[-1], HORIZONTE)
+    error_base = prueba.to_numpy() - referencia
     ganador = min(resultados, key=lambda nombre: resultados[nombre]["mae"])
     ajuste = modelos[ganador]
     residuos = ajuste.resid.iloc[PERIODO:].dropna()
     ljung = float(acorr_ljungbox(residuos, lags=[8], return_df=True)["lb_pvalue"].iloc[0])
     arch = float(het_arch(residuos, nlags=4)[1])
     diagnostico = ljung >= 0.05 and arch >= 0.05
+    mae_base = float(np.mean(np.abs(error_base)))
     intervalos = pd.DataFrame(index=prueba.index)
     if diagnostico:
         if ganador == "ARIMA":
@@ -90,6 +96,34 @@ def evaluar(mercado, tabla):
     correlaciones = {
         rezago: entrenamiento.diff().corr(fix.diff().shift(rezago)) for rezago in range(5)
     }
+    proyeccion = []
+    if (diagnostico and resultados[ganador]["mae"] < mae_base
+            and prueba.index[-1] == tabla["semana"].max()):
+        if ganador == "ARIMA":
+            final = ARIMA(serie, order=candidatos[orden_arima].model.order).fit()
+            if final.mle_retvals["converged"]:
+                futuro = final.get_forecast(HORIZONTE)
+                punto, bandas = futuro.predicted_mean, futuro.conf_int(alpha=0.05)
+            else:
+                punto, bandas = pd.Series(dtype=float), pd.DataFrame()
+        else:
+            final = {
+                "Suavizamiento simple": lambda: SimpleExpSmoothing(serie).fit(),
+                "Holt": lambda: Holt(serie).fit(),
+                "Holt-Winters": lambda: ExponentialSmoothing(
+                    serie, trend="add", seasonal="add", seasonal_periods=PERIODO
+                ).fit(),
+            }[ganador]()
+            punto = final.forecast(HORIZONTE)
+            simulaciones = final.simulate(
+                HORIZONTE, repetitions=2000, random_errors="bootstrap", random_state=4434
+            )
+            bandas = simulaciones.quantile([0.025, 0.975], axis=1).T
+        proyeccion = [
+            {"semana": fecha.date().isoformat(), "precio": float(valor),
+             "inferior_95": float(inferior), "superior_95": float(superior)}
+            for (fecha, valor), (inferior, superior) in zip(punto.items(), bandas.to_numpy())
+        ]
     reporte = {
         "mercado": mercado, "estado": "Evaluación retrospectiva",
         "semanas_contiguas": len(bloque),
@@ -98,14 +132,17 @@ def evaluar(mercado, tabla):
         "prueba_fin": prueba.index[-1].date().isoformat(),
         "ultima_semana_observada": tabla["semana"].max().date().isoformat(),
         "adf_p": adf, "d": d, "adf_diferenciada_p": float(adfuller(estacionaria)[1]),
-        "acf": acf(estacionaria, nlags=13).tolist(),
-        "pacf": pacf(estacionaria, nlags=13, method="ywm").tolist(),
+        "acf": acf(estacionaria, nlags=PERIODO * 2).tolist(),
+        "pacf": pacf(estacionaria, nlags=min(PERIODO * 2, len(estacionaria) // 2 - 1),
+                     method="ywm").tolist(),
         "correlacion_precio_fix_rezago": {
             k: float(v) if pd.notna(v) else None for k, v in correlaciones.items()
         },
         "aic": aic, "orden_arima": orden_arima, "ganador_mae": ganador,
-        "metricas": resultados, "ljung_box_p": ljung, "arch_p": arch,
+        "metricas": resultados, "mae_ultimo_precio": mae_base,
+        "ljung_box_p": ljung, "arch_p": arch,
         "diagnostico_residuos_aprobado": diagnostico,
+        "proyeccion": proyeccion,
     }
     return reporte, [pd.concat([prueba.rename("observado"), pd.DataFrame(predicciones),
                                 intervalos], axis=1), componente]

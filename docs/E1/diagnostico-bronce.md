@@ -56,4 +56,6 @@ El 13 de noviembre se reintentaron las cuatro ventanas. Las tres consultas hist�
 
 Al revisar GitHub Actions el 13 de noviembre, el historial visible mostró cuatro ejecuciones programadas de `captura-bronce` del 9 al 12 de noviembre, todas exitosas, y una ejecución manual exitosa del 8 de noviembre en horario de Ciudad de México. No había ejecuciones visibles de `captura-sniim`. La tasa observada de éxito programado es 4/4 para `captura-bronce`. La ventana de siete días de la rúbrica y los tiempos entre fallas y de reparación siguen sin evidencia suficiente.
 
+Un reintento posterior del tramo del 1 al 7 de octubre devolvió una página completa y verificable. Sus 188 filas ya estaban en el histórico. Se conservó la nueva captura en bronce y el pipeline descartó las repeticiones exactas. Este tramo cubre solo una parte de la consulta original del 1 de octubre al 8 de noviembre.
+
 Historial consultado en [GitHub Actions](https://github.com/aldosolorsano/laboratorio_datos_precio_aguacate/actions).
