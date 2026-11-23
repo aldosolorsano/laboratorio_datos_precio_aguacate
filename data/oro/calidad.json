@@ -1,0 +1,23 @@
+{
+  "cotizaciones_validas": 15338,
+  "rechazos": 4,
+  "duplicados_exactos": 1180,
+  "mercados_semana": 292,
+  "cotizaciones_mercados_objetivo": 2163,
+  "atipicos_iqr_marcados": 37,
+  "valores_presentes_oro": {
+    "fecha": 15338,
+    "presentacion": 15338,
+    "origen": 15338,
+    "mercado": 15338,
+    "minimo_mxn_kg": 15338,
+    "maximo_mxn_kg": 15338,
+    "frecuente_mxn_kg": 15338,
+    "archivo_sniim": 15338,
+    "fix_mxn_usd": 15338,
+    "archivo_banxico": 15338,
+    "temperatura_c": 10279,
+    "precipitacion_mm": 10279,
+    "archivo_clima": 10279
+  }
+}

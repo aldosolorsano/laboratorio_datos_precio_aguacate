@@ -1,0 +1,516 @@
+{
+  "_meta": {
+    "pipeline": "e2",
+    "generado_utc": "2026-11-22T21:00:09.616903+00:00",
+    "filas_cotizaciones_e2": 15338,
+    "descripcion": "Grafo de linaje y trazabilidad completa de registros de Capa Oro a Capa Bronce"
+  },
+  "nodos": {
+    "bronce_sniim": [
+      {
+        "ruta": "sniim/2026-11-08/aguacate_hass_primera_2026-10-01_2026-11-08_p01.html",
+        "sha256": "867ed94b4396725be804271c874d4a64e5be7dc75306753a5b3f7f120765cc1d"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2023-11-09_2024-05-06_p01.html",
+        "sha256": "d6a4afb0220015375f0cf1be6fc5bc18a4c16a5ceda6bd486984bb0498705306"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2023-11-09_2024-05-06_p02.html",
+        "sha256": "f600e13f00675bb020c65482720cd7d00a6af03f0d2b25d1fb5e27b980e17d3b"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p01.html",
+        "sha256": "e264b51310b7cb2f21048c303f6c8c646db7d4b203fc68e932767e0ac2d6c0c8"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p02.html",
+        "sha256": "770a975fb87df8f184d7c16d95c1bad8fdcf76d38679573d6f65cfffb87e42ed"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p03.html",
+        "sha256": "49d93ed6c8c7be598e1d9be96a86d43253a6ff712a77e7da3731667f94a3d586"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p04.html",
+        "sha256": "4ddf1177ccd6142f930647c30cc403d4f479c805ed25d365956f02eaa4716679"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p05.html",
+        "sha256": "3922056201068d0647bbbfc5a0449a32257a64254d96e692c4be2f9c0d12fdd7"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p06.html",
+        "sha256": "3941d180490afeb6e839ce266e3e10428ba956c2566258dd4b2df32f0bf9f555"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p07.html",
+        "sha256": "5f39833cc589cf49abaf94ca0bb787ff15260b75f15ee04742e2d0265fef3330"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p08.html",
+        "sha256": "76471b4504762d879f5bf817df0d93d937b16e8d631702208e6c3143a5f184eb"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p09.html",
+        "sha256": "ff796745373c244fbde0b25faa142d7893692680b5bb5082168c1fa42e3cbf14"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p10.html",
+        "sha256": "237feb7bd1548ed435b97c92a40017c17b22f635b4420dcd7aaa38a5345d2a30"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p11.html",
+        "sha256": "fa55674fe1b201309390455dc7bd9d0537a9181ba27b74ca098ca0246f3685f4"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p01.html",
+        "sha256": "913dbc23c74a20bc77add7fe7fa38cb234548888acf917fa1c86e40209db6560"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p02.html",
+        "sha256": "3a5987ab360a37e6836f671ffd8c5334a8bc519c9e899d2be2524c1c4d70031d"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p03.html",
+        "sha256": "5724d6f99637438b92f39663abe08bf9506222e8e4cf9bcbe423aa2d3b640d04"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p04.html",
+        "sha256": "a6005250975796fa1d1d97a5f01ebf235d356ea5877e552463c0723cfddbdb8a"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p05.html",
+        "sha256": "0663859e84157afe31fd7d1398b1e9914173dfb4b806703506bba8a6ed64d08e"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p06.html",
+        "sha256": "7defa94ff75db1175ec3c49c11b6e26a14a12fb8ee79f347b374a0db2d8508cc"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p07.html",
+        "sha256": "4f3fa726f93bdfd570a7c7387e2974336c85566b95303f80068eba098c5d81f1"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p01.html",
+        "sha256": "e463707a82ba963a6d366ac573933a7e0cbcb1f663823f738c55c1eb598423f5"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p02.html",
+        "sha256": "922952bcfd3c17f6415f2d6d152a43da4833729879f68fd6dd4e678d6b6bfbc2"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p03.html",
+        "sha256": "6091020d87e18cd0e5efe5929affd919b358c6f32e67b8cb13dcd5fadbf47d5c"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p04.html",
+        "sha256": "7fdddf62da16925a3b3a57cc4e4b10284064a5ee62fd0a0791598938d2759933"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p05.html",
+        "sha256": "5dc47e8f7942019cd52ea51c8146be1968d494194bbbb1905f94efac0147b3f8"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p06.html",
+        "sha256": "954fda8be710d8f8267ee90374f25e9301b842a5dc732c66de863f215120a1ce"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p07.html",
+        "sha256": "57e91c735c5d299f939409591f8049cc02555a0b82264c202a1d610a6297241f"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p08.html",
+        "sha256": "006ce3b1d03ffcb8062e0083e27433f050b266b783c218e0f404ba9a200bbdec"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p09.html",
+        "sha256": "649fcf5165bda70aa9d110e7ce824851f9a4d8c3aab2cd2f88d8c3013ad0229e"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p10.html",
+        "sha256": "dd2a19019cd9ef0f973555dfb6a4544d892670a0ec73133dbb0d2bd2a75006ed"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-10-29_2026-04-26_p01.html",
+        "sha256": "1aad74313d98fa963ce1208cb39537f4cd57c4dbfb28abd9698892dcee04b83a"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p01.html",
+        "sha256": "44148fb7f9012a28fbd0bd6408157a3e11fb54cd438b956b8f3f2f5f76eed703"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p02.html",
+        "sha256": "cdc782e6572583eb68503ec9d897341ead032637dfa9c9671374300faa293a75"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p03.html",
+        "sha256": "8af53f1175150ed53e2f1ae3f7a413e116eeea83f760ce36b061f89bb271829b"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p04.html",
+        "sha256": "73dafd1826e383921af3aee272c2ce0bb67da08b2aa1afd3169e724f88e16290"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p05.html",
+        "sha256": "7fa15db646e3896f541670c8d16313facbb8753914ebeb4a8d8ddeeafa606b7b"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p06.html",
+        "sha256": "66ba611a61a85432aa1edb9df0db0a496b993fd8616aeb237185d7e09d597bcb"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p07.html",
+        "sha256": "96c510c77574b0e5ed95be204ccc51a488f09eb2bddbeecb252984cdb0f7126d"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p08.html",
+        "sha256": "e915a38ac5670400daa9578308ea3ac8b4d30d05a921a20438a41dda9cbb23e9"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p09.html",
+        "sha256": "ae4fc72539415010b416c8f61af02fd0f26a9a96bde3310c7325bb3f44028a34"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p10.html",
+        "sha256": "6495f5a5b08c622ea7df1dc5445bc839aa88c19689b8640a330ff2a86292e039"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p01.html",
+        "sha256": "b32ed462a24a72226c754cf1cb69514c1e7331ce0ed23fd8ebd31479249d742b"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p02.html",
+        "sha256": "9f04e81321e77f5ca72a08ed19116ca024b44dc24397c2da0dd200ccfbc7d9a3"
+      },
+      {
+        "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-24_2026-11-09_p01.html",
+        "sha256": "71e56f75c2b166cbb7f70b3610f0a6e41594a9f3167e4103756323cdd6d8f536"
+      },
+      {
+        "ruta": "sniim/2026-11-13/aguacate_hass_primera_2026-10-01_2026-10-07_p01.html",
+        "sha256": "6e96ecabddba43314aded65d3a48c5932506a43bde8300228d27b8739191e524"
+      }
+    ],
+    "bronce_banxico": [
+      {
+        "ruta": "banxico/usdmxn_2026-11-08.json",
+        "sha256": "d15d6ec0d7b8c6b15f6e66ab2cb7750f48bf9fd9ea620177442f8f6dfbb7375d"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-09.json",
+        "sha256": "6ac5d88b37d28baf3f9131802b8269060ce290ce5be518daccf3b5e796e9a67e"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-10.json",
+        "sha256": "8142c724063b25ccf4cf44879d883c5fc58e98daf8fc2a429f01dde884674f6d"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-11.json",
+        "sha256": "8272d9fe75d0c55018375070c6865ca7b719870ad73ad632304fb697b611fba8"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-12.json",
+        "sha256": "b31cd10fa8f41556ea18ec86c84fb937e563bd800c846c635ca0ab6b7227ecb2"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-13.json",
+        "sha256": "d8b1b2ebfdd82849560658d6345690593d1c776a4a7ad94ad03b9cbbf3a61632"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-14.json",
+        "sha256": "2b096ef2419aad26d7e1f21730371f1c68fe6e91e4d1e2d473361a786ba0e383"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-15.json",
+        "sha256": "17516c76a6ff3eb753707f07541e4b81f9e7332f9815995b6cb3f74689d430a8"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-16.json",
+        "sha256": "64a3691e16a9d098c6637b406949aa52c75235bac585c5e352243eed92966d8b"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-17.json",
+        "sha256": "a84cce5025aed8842b0fe8f19f61dd7eb61a8c6794119156b518448cb921f522"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-18.json",
+        "sha256": "2fad6ca8fcdae7acd79ff9a7747d649b51781ea8b2ffddc9f38439f5e0d76bf1"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-19.json",
+        "sha256": "1eb9413049283fd875ff70212fa6f277f6ac57ea0d7492c24bafcc8bbc7eb923"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-20.json",
+        "sha256": "460c2f3fc16aa26712a07587a8377823e35e67690d21526090c1f4017ef10cea"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-21.json",
+        "sha256": "c6755fa4adb8ffdc78b85688c4a2b52e74e69ba4ffb343f15f88065cc6475c25"
+      },
+      {
+        "ruta": "banxico/usdmxn_2026-11-22.json",
+        "sha256": "e3cba163021f74c9dba6330a3637206cb1cb79fc011876ef30bb6a5cdfeaeacc"
+      }
+    ],
+    "bronce_clima": [
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-08.json",
+        "sha256": "59124bf813d17e43bf8248fd96148d9a9e11c0aa88b3698341ee604683d32c04"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-09.json",
+        "sha256": "6fbe2670323bee4cea7b691e98c27bbca2aa602e09999c95d9dad1c88ce22024"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-10.json",
+        "sha256": "b25482486fb1ed8744e64c1566cd325ed4b87d753b382de3f5a8871a35aded1a"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-11.json",
+        "sha256": "8dab0a9f062e98eeeb4adb0844eb9d0df5b5393b9e2ae5dd059e33a31c2137b9"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-12.json",
+        "sha256": "9ceea3438f4a90fdb7f9b797b7a5c00658d6bd7d29005d34885329a79883c29f"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-13.json",
+        "sha256": "7c6d072bbd2c8e3c5b096e2cc55c2b9200fb572bc2520bdecfdd3141cf190050"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-14.json",
+        "sha256": "5781586da02fa35a68f330b1b15a42196d29e3996cac5d01baa72e30a4505819"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-15.json",
+        "sha256": "821b3ca0532498ff2e699de50dd0b6ccbe7d5fe3cb4f5ce3ca22c92805275949"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-16.json",
+        "sha256": "dac3deda5c74a257fe3b215cbf6dd09abb6ff3c3bdff3ff03f11523d2758f98c"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-17.json",
+        "sha256": "aa23d45f8713ed2a2a06a87fd871ffffe40cb7ba5e89e44c09942a9d2fb5d8be"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-18.json",
+        "sha256": "bfac5802eb56080381800d7f7da87c5bfae0024188dcb07d8fee1b8c48c37d39"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-19.json",
+        "sha256": "2b04c43db4e0163d02ea8f8a197d5a147f086512f8711b7b504f8013dafe792b"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-20.json",
+        "sha256": "f5f7d8c1162b8b8723535bcba3f51703c1f4e9aff200787763e0d3db5b61fac2"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-21.json",
+        "sha256": "c2edb64cadc54b3ec386ebfc5398d3e3eb5c16210bfc0fe044fe0185d439c5a5"
+      },
+      {
+        "ruta": "openmeteo/ciudad_guzman_jal_2026-11-22.json",
+        "sha256": "3a4b60beb3e19f661ef242388b46ea052d823bd8cebee1e449153f3f69d90bdd"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-08.json",
+        "sha256": "60a00f9a222552b7d5a2f01a95df8bfcff2f87d9f05d2ab8799596bd31a774a5"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-09.json",
+        "sha256": "ab3d7bfbb7c9e23f1ca1071a6ddc63128fc2c39e1245a12c35d078e39decf092"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-10.json",
+        "sha256": "2596245c6cd6fcbd97c1cab9c483340d8f2792f1d999e60be9a33563644eff9a"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-11.json",
+        "sha256": "ddc73877be7c3b6ec19e212a8e6ba559b4fbff4b158febd26b5eb9fa318dab50"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-12.json",
+        "sha256": "1bd9bdf602281caa64459d09d53f8ecfa135601507b1fb4732d148a5df79ef3c"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-13.json",
+        "sha256": "113398fa2a702517327c70984fc3dc6b671b02a61030e1d0baf0233f0e7b3969"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-14.json",
+        "sha256": "a3c9fe305c623964500f760a246f30ec290207b320a4f6cf8d93c2298a980573"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-15.json",
+        "sha256": "12c4056ac21782030d33208126965c7fb78cd9b497ee02a296486cde6e36b9f4"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-16.json",
+        "sha256": "509d8ec62280fb75cc33da9a07ef95a64a21fd1110ba6631be3dc17da8ada65d"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-17.json",
+        "sha256": "a11ce342b5c8de7f71572e51c69be66226344c44b92d5ad9268277d8fb7070ce"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-18.json",
+        "sha256": "55e734a06276ea683c712d5cbf44ff8511e22b79dd3dcf0b043783bbaad6bca4"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-19.json",
+        "sha256": "2979e29612dfe73885e0724859b8a6b49a7f83ae1a5531eea4ab9ed1b2aa80c0"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-20.json",
+        "sha256": "dba962242cbef6ca485ef1779585794004a7c82d7c8e4574ee51aad8a0529518"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-21.json",
+        "sha256": "6a4eddc8f448a7d156fa11f9f66d8c0372512aa39dde79045bdcc9bfa200e046"
+      },
+      {
+        "ruta": "openmeteo/tancitaro_mich_2026-11-22.json",
+        "sha256": "21367294798ea16682258e8ae23dfdebed83af58eaa1df8c321227858b5aece7"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-08.json",
+        "sha256": "0b3724a0620b863b8f901cf29527e45f60872be4d6e990bb5b141d998bc0c112"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-09.json",
+        "sha256": "b97378e748fcc9ce84c210caa7e7703a0125f1d31baa9200277987d34d6ccb76"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-10.json",
+        "sha256": "2a03b20f8d89911e7d2eda630214071578415ddd560d67dfb9ce5d120616644e"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-11.json",
+        "sha256": "a269da740f09fa18c929647841bc8dfa9bbd307807e4289c3f4c19304ae03112"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-12.json",
+        "sha256": "24d3d306d21b1381da38a93555069d8e79fd131fc74e7f4aca33244bf4568aff"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-13.json",
+        "sha256": "6e363e036ffc3e30b387c13e42e76723a55a72db9fe4c28ae5de055f1f90917f"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-14.json",
+        "sha256": "44848d153df4028aff930e0189c951f76e55b8a1cb706f35f8afe054f8bddf53"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-15.json",
+        "sha256": "fa5936bc41c35b7ced28faa412441d43764fcee5fa8b628b50d06a6a9e95df7a"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-16.json",
+        "sha256": "f425921120d269020876f15718f3d6e215fed0afcdb0a822793e848a65e03a54"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-17.json",
+        "sha256": "5b0a9e6b47efda9405fb1dfb0e277af4116a95ec83eccacf048367dc05ac185a"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-18.json",
+        "sha256": "c5a5fecaf2d7246f907b5a7a1f0f707e29f7147f4067195928ca01cdd7b19ce6"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-19.json",
+        "sha256": "8e4efd305090af7de64da18397bae25cba719275532fcc0772bc50ce475f6e88"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-20.json",
+        "sha256": "27f0e5a66219eedfce0b5f901cf7c514a728f404d4c6a74e773189d42cdb769c"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-21.json",
+        "sha256": "2723940e4c663db7ab9d0de333b11e7792326dd2f904a82ab69f3596d29359ed"
+      },
+      {
+        "ruta": "openmeteo/uruapan_mich_2026-11-22.json",
+        "sha256": "048d7f1a7aa1b55198ea18b21481db44d80cb2f11a7aebf4af9c7ba9913112c7"
+      }
+    ],
+    "bronce_reddit": [
+      {
+        "ruta": "reddit/reddit_aguacate_2026-11-22.json",
+        "sha256": "7714a4fafa870cc606550346b11eb48e4474a9c145550c1699f4634f5e76c13f"
+      }
+    ]
+  },
+  "aristas": {
+    "sniim_en_oro": [
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p01.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p02.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p03.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p04.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p05.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p06.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p07.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p08.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p09.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p10.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p11.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p01.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p02.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p03.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p04.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p05.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p06.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p07.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p08.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p09.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p10.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p01.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p02.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p03.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p04.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p05.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p06.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p07.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p08.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p09.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p10.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p01.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p02.html",
+      "sniim/2026-11-09/aguacate_hass_primera_2026-10-24_2026-11-09_p01.html"
+    ],
+    "banxico_en_oro": [
+      "banxico/usdmxn_2026-11-22.json"
+    ],
+    "clima_en_oro": [
+      "openmeteo/ciudad_guzman_jal_2026-11-22.json",
+      "openmeteo/tancitaro_mich_2026-11-22.json",
+      "openmeteo/uruapan_mich_2026-11-22.json"
+    ],
+    "reddit_en_oro": [
+      "data/bronce/reddit/reddit_aguacate_2026-11-22.json"
+    ]
+  },
+  "reglas_trazabilidad": {
+    "clave_registro_oro": [
+      "fecha",
+      "presentacion",
+      "origen",
+      "mercado"
+    ],
+    "trazabilidad_primaria": {
+      "origen_bronce": "archivo_sniim",
+      "fecha_ingesta_bronce": "ingesta_bronce_fecha"
+    },
+    "trazabilidad_contextual": {
+      "origen_tipo_cambio": "archivo_banxico",
+      "origen_clima": "archivo_clima",
+      "origen_redes_sociales": "archivo_reddit"
+    }
+  },
+  "salidas": {
+    "cotizaciones_e2": "data\\oro\\cotizaciones_e2.csv",
+    "reddit_metricas_diarias_oro": "data\\oro\\reddit_metricas_diarias.csv"
+  }
+}

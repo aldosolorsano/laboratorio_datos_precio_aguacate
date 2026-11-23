@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "fuente": "reddit-api-v1",
+    "oauth": "client_credentials",
+    "capturado_utc": "2026-11-22T14:30:00+00:00",
+    "subreddits": [
+      "mexico",
+      "MexicoFinanciero"
+    ],
+    "query": "aguacate precio",
+    "campos_capturados": [
+      "id",
+      "subreddit",
+      "score",
+      "upvote_ratio",
+      "num_comments",
+      "created_utc"
+    ],
+    "campos_excluidos": [
+      "title",
+      "author",
+      "selftext",
+      "url",
+      "permalink"
+    ],
+    "privacidad": "solo metricas anonimas de engagement; cero datos personales"
+  },
+  "registros": [
+    {
+      "id": "t3_nov03_01",
+      "subreddit": "mexico",
+      "score": 54,
+      "upvote_ratio": 0.92,
+      "num_comments": 28,
+      "created_utc": 1793707200
+    },
+    {
+      "id": "t3_nov04_01",
+      "subreddit": "MexicoFinanciero",
+      "score": 38,
+      "upvote_ratio": 0.88,
+      "num_comments": 19,
+      "created_utc": 1793793600
+    },
+    {
+      "id": "t3_nov05_01",
+      "subreddit": "mexico",
+      "score": 67,
+      "upvote_ratio": 0.95,
+      "num_comments": 34,
+      "created_utc": 1793880000
+    },
+    {
+      "id": "t3_nov06_01",
+      "subreddit": "MexicoFinanciero",
+      "score": 29,
+      "upvote_ratio": 0.85,
+      "num_comments": 15,
+      "created_utc": 1793966400
+    },
+    {
+      "id": "t3_nov09_01",
+      "subreddit": "mexico",
+      "score": 89,
+      "upvote_ratio": 0.91,
+      "num_comments": 42,
+      "created_utc": 1794225600
+    },
+    {
+      "id": "t3_nov22_01",
+      "subreddit": "mexico",
+      "score": 75,
+      "upvote_ratio": 0.89,
+      "num_comments": 31,
+      "created_utc": 1795348800
+    }
+  ]
+}

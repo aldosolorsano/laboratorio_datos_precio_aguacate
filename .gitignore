@@ -2,5 +2,8 @@ __pycache__/
 .venv/
 .env
 data/plata/
-data/oro/
+data/oro/*
+!data/oro/linaje.json
+!data/oro/calidad_e2.json
+!data/oro/calidad.json
 data/cuarentena/
