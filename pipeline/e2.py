@@ -17,7 +17,6 @@ import argparse
 import hashlib
 import json
 import re
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -26,8 +25,6 @@ import pandas as pd
 # Importar pipeline E1
 from pipeline.e1 import ejecutar as ejecutar_e1
 
-# Importar transformador Reddit
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.transformadores.integrar_reddit import ejecutar as ejecutar_reddit
 
 
@@ -152,15 +149,11 @@ def ejecutar(bronce: Path, salida: Path) -> None:
     plata_reddit_csv = salida / "plata" / "reddit_metricas_diarias.csv"
     oro_reddit_csv = salida / "oro" / "reddit_metricas_diarias.csv"
 
-    try:
-        _, reddit_oro = ejecutar_reddit(
-            bronce_dir=bronce_reddit,
-            plata_csv=plata_reddit_csv,
-            oro_csv=oro_reddit_csv,
-        )
-    except Exception as error:
-        print(f"[WARN] Transformador Reddit falló: {error}. Continuando sin métricas Reddit.")
-        reddit_oro = pd.DataFrame()
+    _, reddit_oro = ejecutar_reddit(
+        bronce_dir=bronce_reddit,
+        plata_csv=plata_reddit_csv,
+        oro_csv=oro_reddit_csv,
+    )
 
     # ------------------------------------------------------------------
     # PASO 3: Join cotizaciones_oro (E1) + reddit_metricas_diarias (E2)
@@ -238,9 +231,11 @@ def ejecutar(bronce: Path, salida: Path) -> None:
         posts_capturados = int(fechas_reddit["posts_mencionando_aguacate"].astype(float).sum())
 
     # Trazabilidad primaria obligatoria: cada fila tiene su archivo_sniim y su fecha de ingesta en bronce
-    trazabilidad_primaria_completa = (
-        cotizaciones_e2[["archivo_sniim", "ingesta_bronce_fecha"]].notna().all(axis=1).mean() * 100
+    origen_existe = cotizaciones_e2["archivo_sniim"].map(
+        lambda ruta: isinstance(ruta, str) and (bronce / ruta).is_file()
     )
+    fecha_existe = cotizaciones_e2["ingesta_bronce_fecha"].ne("")
+    trazabilidad_primaria_completa = float((origen_existe & fecha_existe).mean() * 100)
 
     calidad = {
         "pipeline": "e2",
@@ -249,7 +244,8 @@ def ejecutar(bronce: Path, salida: Path) -> None:
         "dias_sniim_en_oro": int(dias_sniim),
         "trazabilidad_bronce_a_oro_pct": round(float(trazabilidad_primaria_completa), 2),
         "metricas_reddit": {
-            "posts_unicos_capturados": posts_capturados,
+            "posts_unicos_capturados": int(reddit_oro["posts_mencionando_aguacate"].sum()),
+            "posts_en_fechas_sniim": posts_capturados,
             "dias_con_datos_reddit": int(dias_con_reddit),
             "filas_oro_enriquecidas_con_reddit": int(filas_con_reddit),
         },
@@ -257,6 +253,10 @@ def ejecutar(bronce: Path, salida: Path) -> None:
             "banxico_fix_pct": round(float(cotizaciones_e2["fix_mxn_usd"].notna().mean() * 100), 2),
             "openmeteo_clima_pct": round(float(cotizaciones_e2["temperatura_c"].notna().mean() * 100), 2),
         },
+        "capturas_reddit": len(list(bronce_reddit.glob("reddit_aguacate_*.json"))),
+        "estado_fuente_especializada": (
+            "con_observaciones" if not reddit_oro.empty else "sin_observaciones"
+        ),
     }
 
     ruta_calidad = salida / "oro" / "calidad_e2.json"

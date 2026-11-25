@@ -45,14 +45,15 @@ def seccion_mercado(r):
 
 
 def seccion_reddit(ruta_reddit: Path):
+    pendiente = (
+        '<section class="seccion-reddit"><h2>Actividad de Reddit</h2>'
+        '<p>Fuente pendiente de una captura verificable con observaciones.</p></section>'
+    )
     if not ruta_reddit.exists():
-        return ""
-    try:
-        df = pd.read_csv(ruta_reddit)
-        if df.empty:
-            return ""
-    except Exception:
-        return ""
+        return pendiente
+    df = pd.read_csv(ruta_reddit)
+    if df.empty:
+        return pendiente
 
     total_posts = int(df["posts_mencionando_aguacate"].sum())
     score_total = int(df["score_total"].sum())
@@ -68,7 +69,7 @@ def seccion_reddit(ruta_reddit: Path):
         </div>
         <div class="kpi-card">
             <span class="kpi-label">Score Neto Acumulado</span>
-            <span class="kpi-value">+{score_total}</span>
+            <span class="kpi-value">{score_total:+d}</span>
             <span class="kpi-sub">Upvotes netos recibidos</span>
         </div>
         <div class="kpi-card">
@@ -104,9 +105,9 @@ def seccion_reddit(ruta_reddit: Path):
     return f"""
     <section class="seccion-reddit">
         <h2>📱 Métricas Agregadas de Redes Sociales (Reddit API · E2)</h2>
-        <div class="badge-privacidad">🔒 Cero datos personales almacenados (Cumplimiento de Términos de Reddit y Privacidad)</div>
-        <p>Monitoreo diario de opinión y engagement en comunidades mexicanas (búsqueda: <em>"aguacate precio"</em> con autenticación OAuth 2.0). 
-        Permite medir la sensibilidad pública y el pulso del consumidor frente a los precios mayoristas.</p>
+        <p>Conteos diarios de publicaciones, votos y comentarios en comunidades mexicanas
+        para la búsqueda <em>"aguacate precio"</em>. La relación de esta actividad con los
+        precios mayoristas requiere validación.</p>
         {tarjetas}
         <h3>Detalle Diario Agregado y Trazabilidad</h3>
         {tabla_reddit}

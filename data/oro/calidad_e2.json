@@ -1,16 +1,19 @@
 {
   "pipeline": "e2",
-  "generado_utc": "2026-11-22T21:00:02.206777+00:00",
+  "generado_utc": "2026-11-25T22:45:41.630437+00:00",
   "filas_totales_oro": 15338,
   "dias_sniim_en_oro": 391,
   "trazabilidad_bronce_a_oro_pct": 100.0,
   "metricas_reddit": {
-    "posts_unicos_capturados": 5,
-    "dias_con_datos_reddit": 5,
-    "filas_oro_enriquecidas_con_reddit": 168
+    "posts_unicos_capturados": 0,
+    "posts_en_fechas_sniim": 0,
+    "dias_con_datos_reddit": 0,
+    "filas_oro_enriquecidas_con_reddit": 0
   },
   "cobertura_fuentes_contextuales": {
     "banxico_fix_pct": 100.0,
     "openmeteo_clima_pct": 67.02
-  }
+  },
+  "capturas_reddit": 0,
+  "estado_fuente_especializada": "sin_observaciones"
 }

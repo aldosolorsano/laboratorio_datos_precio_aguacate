@@ -1,4 +1,4 @@
-name: Validación E1
+name: Validación E1 y E2
 on: [push, pull_request]
 permissions:
   contents: read
@@ -13,24 +13,30 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements-e1.txt
-      - run: python -m pip install -r requirements-e1.txt
-      - run: python -m ruff check pipeline laboratorio tools/perfilar_sniim.py tests
+          cache-dependency-path: |
+            requirements-e1.txt
+            requirements-e2.txt
+      - run: python -m pip install -r requirements-e2.txt
+      - run: python -m ruff check pipeline laboratorio tools/perfilar_sniim.py tests src/extractores/reddit.py src/transformadores
       - run: python -m unittest discover -s tests
       - run: python -m pipeline.e1
+      - run: python -m pipeline.e2
       - run: python -m laboratorio.pronostico
       - run: python -m laboratorio.tablero
       - uses: actions/upload-artifact@v4
         with:
-          name: evidencia-e1
+          name: evidencia-e1-e2
           path: |
             data/oro/pronostico/
             data/oro/calidad.json
+            data/oro/calidad_e2.json
+            data/oro/linaje.json
+            data/oro/reddit_metricas_diarias.csv
             data/cuarentena/
-      - name: Auditar dependencias de E1
+      - name: Auditar dependencias de E1 y E2
         run: |
           python -m pip install pip-audit
-          python -m pip_audit -r requirements-e1.txt
+          python -m pip_audit -r requirements-e2.txt
       - name: Revisar secretos en el historial
         if: always()
         run: |

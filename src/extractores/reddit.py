@@ -21,7 +21,6 @@ import requests
 # Configuración
 # ---------------------------------------------------------------------------
 TOKEN_URL = "https://www.reddit.com/api/v1/access_token"
-SEARCH_URL = "https://oauth.reddit.com/search"
 USER_AGENT = "TrustedDataLab-Aguacate/0.2 (proyecto academico; contact: datos@lab.mx)"
 SUBREDDITS = ["mexico", "MexicoFinanciero"]
 QUERY = "aguacate precio"
@@ -83,14 +82,14 @@ def buscar_posts(token: str, subreddit: str, query: str) -> list[dict]:
     }
     url = f"https://oauth.reddit.com/r/{subreddit}/search"
 
-    try:
-        time.sleep(PAUSA_SEGUNDOS)
-        respuesta = requests.get(url, headers=headers, params=params, timeout=30)
-        respuesta.raise_for_status()
-        datos = respuesta.json()
-    except requests.RequestException as error:
-        print(f"  [WARN] Error buscando en r/{subreddit}: {error}")
-        return []
+    time.sleep(PAUSA_SEGUNDOS)
+    respuesta = requests.get(url, headers=headers, params=params, timeout=30)
+    respuesta.raise_for_status()
+    datos = respuesta.json()
+    if not isinstance(datos.get("data", {}).get("children"), list):
+        raise ValueError("Respuesta de búsqueda Reddit sin lista children")
+    if datos["data"].get("after"):
+        raise RuntimeError("La búsqueda requiere más páginas. Captura incompleta.")
 
     posts = datos.get("data", {}).get("children", [])
     metricas = []
@@ -130,7 +129,8 @@ def guardar_bronce(registros: list[dict], subreddits: list[str], query: str) -> 
             "campos_capturados": ["id", "subreddit", "score", "upvote_ratio",
                                   "num_comments", "created_utc"],
             "campos_excluidos": ["title", "author", "selftext", "url", "permalink"],
-            "privacidad": "solo metricas anonimas de engagement; cero datos personales",
+            "ventana_busqueda": "week",
+            "privacidad": "métricas por publicación sin texto ni autor; identificador técnico",
         },
         "registros": registros,
     }
