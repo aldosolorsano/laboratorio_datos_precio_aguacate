@@ -15,15 +15,19 @@ print(f"  • Trazabilidad Bronce -> Oro     : {cot[['archivo_sniim', 'ingesta_b
 
 # 2. Ejemplo de un registro con linaje completo
 print("\n[2] EJEMPLO DE REGISTRO CON TRAZABILIDAD COMPLETA:")
-muestra = cot.dropna(subset=['archivo_reddit']).iloc[-1]
-print(f"  • Fecha cotizada      : {muestra['fecha']}")
-print(f"  • Mercado y Origen    : {muestra['mercado']} (Origen: {muestra['origen']})")
-print(f"  • Presentacion        : {muestra['presentacion']}")
-print(f"  • Precios en MXN/kg   : Min ${float(muestra['minimo_mxn_kg']):.2f} | Frecuente ${float(muestra['frecuente_mxn_kg']):.2f} | Max ${float(muestra['maximo_mxn_kg']):.2f}")
-print(f"  • Tipo de Cambio FIX  : ${float(muestra['fix_mxn_usd']):.4f} MXN/USD (Fuente: {muestra['archivo_banxico']})")
-print(f"  • Clima en Produccion : {muestra['temperatura_c']} °C, Lluvia: {muestra['precipitacion_mm']} mm (Fuente: {muestra['archivo_clima']})")
-print(f"  • Sentimiento Reddit  : {int(float(muestra['posts_mencionando_aguacate']))} posts, Score neto: {int(float(muestra['score_total']))}, Ratio positivo: {float(muestra['ratio_positivo_promedio'])*100:.1f}%")
-print(f"  • Origen Bronce SNIIM : {muestra['archivo_sniim']} (Ingesta: {muestra['ingesta_bronce_fecha']})")
+vinculadas = cot.dropna(subset=['archivo_reddit'])
+if vinculadas.empty:
+    print('  Fuente Reddit pendiente de una captura verificable con fechas coincidentes.')
+else:
+    muestra = vinculadas.iloc[-1]
+    print(f"  • Fecha cotizada      : {muestra['fecha']}")
+    print(f"  • Mercado y Origen    : {muestra['mercado']} (Origen: {muestra['origen']})")
+    print(f"  • Presentacion        : {muestra['presentacion']}")
+    print(f"  • Precios en MXN/kg   : Min ${float(muestra['minimo_mxn_kg']):.2f} | Frecuente ${float(muestra['frecuente_mxn_kg']):.2f} | Max ${float(muestra['maximo_mxn_kg']):.2f}")
+    print(f"  • Tipo de Cambio FIX  : ${float(muestra['fix_mxn_usd']):.4f} MXN/USD (Fuente: {muestra['archivo_banxico']})")
+    print(f"  • Clima en Produccion : {muestra['temperatura_c']} °C, Lluvia: {muestra['precipitacion_mm']} mm (Fuente: {muestra['archivo_clima']})")
+    print(f"  • Actividad Reddit  : {int(float(muestra['posts_mencionando_aguacate']))} posts, Score neto: {int(float(muestra['score_total']))}, Ratio positivo: {float(muestra['ratio_positivo_promedio'])*100:.1f}%")
+    print(f"  • Origen Bronce SNIIM : {muestra['archivo_sniim']} (Ingesta: {muestra['ingesta_bronce_fecha']})")
 
 # 3. Pronóstico Econométrico
 with open("data/oro/pronostico/evaluacion.json", encoding="utf-8") as f:
