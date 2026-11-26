@@ -1,7 +1,7 @@
 {
   "_meta": {
     "pipeline": "e3-optimizado",
-    "generado_utc": "2026-11-26T18:49:10.468812+00:00",
+    "generado_utc": "2026-11-26T19:17:55.226542+00:00",
     "filas_curadas": 15338,
     "optimizaciones": [
       "vectorizacion",
@@ -491,15 +491,10 @@
     "redes_mastodon": [
       {
         "ruta": "redes/redes_aguacate_2026-11-26.json",
-        "sha256": "bd2872e283aab0d83f2d12ceb87577e4abca1112b98d4ea05e0dbaf1ff622e85"
+        "sha256": "6c76bbafd8b0f73576625859837fb530264c115212920689f259ad1398935326"
       }
     ],
-    "redes_reddit": [
-      {
-        "ruta": "reddit/reddit_aguacate_2026-11-22.json",
-        "sha256": "7714a4fafa870cc606550346b11eb48e4474a9c145550c1699f4634f5e76c13f"
-      }
-    ]
+    "redes_reddit": []
   },
   "trazabilidad": {
     "archivo_origen_primario": "archivo_sniim",

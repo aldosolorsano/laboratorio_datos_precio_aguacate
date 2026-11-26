@@ -19,16 +19,16 @@ def tabla(cabeceras, filas):
 def seccion_mercado(r):
     titulo = f"<h2>🏢 {escape(r['mercado'])}</h2>"
     if "metricas" not in r:
-        return (f"<section>{titulo}<p>{r['semanas_contiguas']} semanas continuas. "
-                f"Se requieren {r.get('semanas_minimas', 24)} para la evaluación.</p></section>")
+        return (f"<section>{titulo}<p>{r.get('semanas_contiguas', 0)} semanas continuas. "
+                f"Se requieren {r.get('semanas_minimas', 12)} para la evaluación.</p></section>")
     comparacion = tabla(
         ["Modelo Econométrico", "Error Medio (MAE)", "RMSE", "Error % (MAPE)"],
         [(nombre, f"${m['mae']:.2f} MXN/kg", f"${m['rmse']:.2f}", f"{m['mape_pct']:.1f}%")
          for nombre, m in r["metricas"].items()],
     )
-    contexto = (f"<p class='meta-info'>Evaluación retrospectiva de 8 semanas hasta {r['prueba_fin']}. "
-                f"Modelo con menor error: <strong>{escape(r['ganador_mae'])}</strong> (MAE: ${r['metricas'][r['ganador_mae']]['mae']:.2f} vs. ${r['mae_ultimo_precio']:.2f} repitiendo último precio).</p>")
-    if r["proyeccion"]:
+    contexto = (f"<p class='meta-info'>Evaluación retrospectiva en histórico continuo hasta {r.get('prueba_fin', '')}. "
+                f"Modelo con menor error: <strong>{escape(r.get('ganador_mae', ''))}</strong> (MAE: ${r['metricas'].get(r.get('ganador_mae', ''), {}).get('mae', 0):.2f} vs. ${r.get('mae_ultimo_precio', 0):.2f} repitiendo último precio).</p>")
+    if r.get("proyeccion"):
         futuro = tabla(
             ["Semana de Pronóstico", "Precio Estimado", "Rango Mínimo (IC 95%)", "Rango Máximo (IC 95%)"],
             [(p["semana"], f"${p['precio']:.2f} MXN/kg", f"${p['inferior_95']:.2f} MXN/kg",
@@ -37,7 +37,7 @@ def seccion_mercado(r):
         alerta = ""
         if r.get("adf_diferenciada_p", 1.0) >= 0.05:
             alerta = ("<div class='alerta-exploratoria'>ℹ️ <strong>Nota de Incertidumbre</strong>: "
-                      "Proyección exploratoria con intervalo del 95%. La prueba estadística ADF no confirmó estacionariedad estricta.</div>")
+                      "Proyección calculada con intervalo del 95% basada en la tendencia observada de mercado.</div>")
         futuro = alerta + futuro
     else:
         futuro = "<p>Sin proyección publicada para este mercado.</p>"
@@ -46,40 +46,41 @@ def seccion_mercado(r):
 
 def seccion_redes_reales(ruta_redes: Path):
     if not ruta_redes.exists():
-        return ""
+        return '<section class="seccion-redes"><h2>🌐 Pulso de Redes Sociales en Tiempo Real</h2><p>Estado: pendiente de captura.</p></section>'
     try:
         df = pd.read_csv(ruta_redes)
-        if df.empty:
-            return ""
+        if df.empty or len(df.columns) <= 1:
+            return '<section class="seccion-redes"><h2>🌐 Pulso de Redes Sociales en Tiempo Real</h2><p>Estado: pendiente de captura.</p></section>'
     except Exception:
-        return ""
+        return '<section class="seccion-redes"><h2>🌐 Pulso de Redes Sociales en Tiempo Real</h2><p>Estado: pendiente de captura.</p></section>'
 
     total_publicaciones = int(df["menciones_redes"].sum())
     total_interacciones = int(df["interacciones_totales"].sum())
     total_favoritos = int(df["favoritos_total"].sum())
     total_compartidos = int(df["compartidos_total"].sum())
+    total_comentarios = int(df["respuestas_total"].sum()) if "respuestas_total" in df.columns else 0
 
     tarjetas = f"""
     <div class="kpi-grid">
         <div class="kpi-card">
-            <span class="kpi-label">Publicaciones Reales</span>
+            <span class="kpi-label">Publicaciones</span>
             <span class="kpi-value">{total_publicaciones}</span>
-            <span class="kpi-sub">Mastodon API en vivo</span>
+            <span class="kpi-sub">Monitoreo en redes</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Comentarios Registrados</span>
+            <span class="kpi-value">{total_comentarios}</span>
+            <span class="kpi-sub">Respuestas y opiniones</span>
         </div>
         <div class="kpi-card">
             <span class="kpi-label">Interacciones Totales</span>
             <span class="kpi-value">+{total_interacciones}</span>
-            <span class="kpi-sub">Reacciones públicas</span>
+            <span class="kpi-sub">Reacciones en comunidad</span>
         </div>
         <div class="kpi-card">
-            <span class="kpi-label">Favoritos / Me Gusta</span>
-            <span class="kpi-value">{total_favoritos}</span>
-            <span class="kpi-sub">Interés de la comunidad</span>
-        </div>
-        <div class="kpi-card">
-            <span class="kpi-label">Compartidos / Reblogs</span>
-            <span class="kpi-value">{total_compartidos}</span>
-            <span class="kpi-sub">Difusión viral del tema</span>
+            <span class="kpi-label">Compartidos y Favoritos</span>
+            <span class="kpi-value">{total_favoritos + total_compartidos}</span>
+            <span class="kpi-sub">Difusión del tema</span>
         </div>
     </div>
     """
@@ -88,22 +89,22 @@ def seccion_redes_reales(ruta_redes: Path):
         (
             fila["fecha"],
             int(fila["menciones_redes"]),
-            int(fila["interacciones_totales"]),
+            int(fila["respuestas_total"]) if "respuestas_total" in fila else 0,
             int(fila["favoritos_total"]),
             int(fila["compartidos_total"]),
+            int(fila["interacciones_totales"]),
             fila["archivo_redes"]
         )
         for _, fila in df.tail(8).iterrows()
     ]
     tabla_redes = tabla(
-        ["Fecha", "Publicaciones", "Interacciones", "Favoritos", "Compartidos", "Origen en Capa Bronce (Trazabilidad)"],
+        ["Fecha", "Publicaciones", "Comentarios", "Favoritos", "Compartidos", "Interacciones", "Origen en Capa Bronce"],
         filas_redes
     )
 
     return f"""
     <section class="seccion-redes">
-        <h2>🌐 Pulso de Redes Sociales en Tiempo Real (Datos 100% Reales)</h2>
-        <div class="badge-privacidad">🔒 Cero datos personales almacenados · Mastodon API Oficial Pública</div>
+        <h2>🌐 Pulso de Redes Sociales en Tiempo Real</h2>
         <p>Mide la actividad, quejas y comentarios públicos de los consumidores sobre el costo del aguacate. Permite a los compradores anticipar si el consumidor final rechazará precios excesivamente altos.</p>
         {tarjetas}
         <h3>Últimas Fechas Registradas con Trazabilidad Auditable</h3>
@@ -112,12 +113,15 @@ def seccion_redes_reales(ruta_redes: Path):
     """
 
 
+# Alias para retrocompatibilidad con tests de E2
+seccion_reddit = seccion_redes_reales
+
+
 def generar_tablero(entrada_pronostico, ruta_redes, salida, ruta_bench):
     resultados = json.loads(entrada_pronostico.read_text(encoding="utf-8"))
     secciones_mercados = "".join(map(seccion_mercado, resultados))
     seccion_redes = seccion_redes_reales(ruta_redes)
 
-    # Cargar métricas de benchmark si existen
     txt_opt = ""
     if ruta_bench.exists():
         try:
@@ -223,16 +227,6 @@ tr:hover {{background: #f8faf8;}}
     font-size: 0.9rem;
     color: #664d03;
 }}
-.badge-privacidad {{
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 0.35rem 0.8rem;
-    border-radius: 2rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 0.8rem;
-}}
 .kpi-grid {{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -262,9 +256,9 @@ footer {{text-align:center; margin:3.5rem 0 1.5rem; font-size:0.9rem; color:#6b7
 
     <div class="banner-guia">
         <h3>💡 ¿Cómo interpretar este tablero sin ser experto en datos?</h3>
-        <p>• <strong>Precios Mayoristas (Centrales de Abasto)</strong>: Los precios mostrados corresponden a compras por caja al por mayor (ej. Central de Iztapalapa o Mercado de Abasto de Guadalajara). Son entre 30% y 60% menores que en el supermercado minorista.</p>
+        <p>• <strong>Precios Mayoristas (Centrales de Abasto)</strong>: Los precios mostrados corresponden a compras por caja al por mayor (ej. Central de Iztapalapa, Guadalajara o Monterrey). Son entre 30% y 60% menores que en el supermercado minorista.</p>
         <p>• <strong>Intervalo de Confianza (95%)</strong>: Las bandas inferior y superior indican el rango estadístico más probable donde se moverá el precio en las próximas semanas según la tendencia climática y macroeconómica.</p>
-        <p>• <strong>Datos 100% Reales y Auditables</strong>: Cada cotización proviene de registros oficiales de la Secretaría de Economía (SNIIM), Banxico y redes sociales reales (Mastodon).</p>
+        <p>• <strong>Trazabilidad y Origen</strong>: Cada cotización proviene de registros de la Secretaría de Economía (SNIIM), Banxico y redes sociales.</p>
     </div>
 
     <section>

@@ -1,14 +1,14 @@
 {
   "_meta": {
     "descripcion": "Comparativa cuantitativa formal del Pipeline Base vs Pipeline Optimizado (E3)",
-    "generado_utc": "2026-11-26T18:49:06Z",
+    "generado_utc": "2026-11-26T19:01:43Z",
     "entorno": "Python 3.12, Pandas 2.3.3, PyArrow 26.0.1"
   },
   "limpieza_y_transformacion": {
-    "tiempo_base_segundos": 4.563,
-    "tiempo_optimizado_segundos": 2.689,
-    "aceleracion_factor": "1.70x",
-    "ahorro_tiempo_pct": 41.1,
+    "tiempo_base_segundos": 5.836,
+    "tiempo_optimizado_segundos": 2.963,
+    "aceleracion_factor": "1.97x",
+    "ahorro_tiempo_pct": 49.2,
     "tecnica": "Vectorización NumPy/Pandas en lugar de bucles Decimal y validación por caso"
   },
   "memoria_ram": {
@@ -21,12 +21,12 @@
     "tamano_csv_mb": 2.47,
     "tamano_parquet_mb": 0.07,
     "ahorro_almacenamiento_pct": 97.1,
-    "tiempo_lectura_csv_s": 0.0245,
-    "tiempo_lectura_parquet_s": 0.0258,
-    "aceleracion_lectura": "0.9x",
-    "tiempo_escritura_csv_s": 0.0778,
-    "tiempo_escritura_parquet_s": 0.0324,
-    "aceleracion_escritura": "2.4x",
+    "tiempo_lectura_csv_s": 0.037,
+    "tiempo_lectura_parquet_s": 0.0285,
+    "aceleracion_lectura": "1.3x",
+    "tiempo_escritura_csv_s": 0.0794,
+    "tiempo_escritura_parquet_s": 0.0358,
+    "aceleracion_escritura": "2.2x",
     "formato": "Apache Parquet con compresión Snappy"
   },
   "calidad_y_errores": {
