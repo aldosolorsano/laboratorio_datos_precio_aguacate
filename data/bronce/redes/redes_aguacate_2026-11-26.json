@@ -1,0 +1,213 @@
+{
+  "_meta": {
+    "fuente": "mastodon-social-api-v1",
+    "url_origen": "https://mastodon.social/api/v1/timelines/tag/aguacate",
+    "etiqueta": "aguacate",
+    "capturado_utc": "2026-11-26T18:44:41.022079+00:00",
+    "tipo_datos": "datos reales públicos agregados",
+    "licencia": "Datos públicos de red descentralizada ActivityPub / Mastodon",
+    "privacidad": "Cero datos personales almacenados (cumple RGPD y LFPDPPP). Solo engagement numérico."
+  },
+  "registros": [
+    {
+      "id": "117680044903927985",
+      "red_social": "mastodon",
+      "fecha": "2026-11-26",
+      "created_at_utc": "2026-11-26T01:03:02.057Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117667646674417701",
+      "red_social": "mastodon",
+      "fecha": "2026-11-23",
+      "created_at_utc": "2026-11-23T20:30:00.000Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117645157919417842",
+      "red_social": "mastodon",
+      "fecha": "2026-11-19",
+      "created_at_utc": "2026-11-19T21:10:46.000Z",
+      "respuestas": 3,
+      "compartidos": 2,
+      "favoritos": 3,
+      "interacciones_totales": 8
+    },
+    {
+      "id": "117631985470427819",
+      "red_social": "mastodon",
+      "fecha": "2026-11-17",
+      "created_at_utc": "2026-11-17T13:20:53.297Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117572897384541628",
+      "red_social": "mastodon",
+      "fecha": "2026-11-07",
+      "created_at_utc": "2026-11-07T02:54:00.663Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117572680521108263",
+      "red_social": "mastodon",
+      "fecha": "2026-11-07",
+      "created_at_utc": "2026-11-07T01:58:51.594Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117567157247314271",
+      "red_social": "mastodon",
+      "fecha": "2026-11-06",
+      "created_at_utc": "2026-11-06T02:34:13.115Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117561947368064680",
+      "red_social": "mastodon",
+      "fecha": "2026-11-05",
+      "created_at_utc": "2026-11-05T04:29:16.672Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117561448239836551",
+      "red_social": "mastodon",
+      "fecha": "2026-11-05",
+      "created_at_utc": "2026-11-05T02:22:20.579Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117556109257602036",
+      "red_social": "mastodon",
+      "fecha": "2026-11-04",
+      "created_at_utc": "2026-11-04T03:44:34.174Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117550039242924426",
+      "red_social": "mastodon",
+      "fecha": "2026-11-03",
+      "created_at_utc": "2026-11-03T02:00:53.106Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117533642247635957",
+      "red_social": "mastodon",
+      "fecha": "2026-10-31",
+      "created_at_utc": "2026-10-31T04:30:54.835Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117484566002704774",
+      "red_social": "mastodon",
+      "fecha": "2026-10-22",
+      "created_at_utc": "2026-10-22T12:30:09.000Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117397159441140120",
+      "red_social": "mastodon",
+      "fecha": "2026-10-07",
+      "created_at_utc": "2026-10-07T02:01:32.451Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117369132511902192",
+      "red_social": "mastodon",
+      "fecha": "2026-10-02",
+      "created_at_utc": "2026-10-02T03:13:55.461Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117365657182665761",
+      "red_social": "mastodon",
+      "fecha": "2026-10-01",
+      "created_at_utc": "2026-10-01T12:30:06.137Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117309716863180270",
+      "red_social": "mastodon",
+      "fecha": "2026-09-21",
+      "created_at_utc": "2026-09-21T15:23:43.000Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 2,
+      "interacciones_totales": 2
+    },
+    {
+      "id": "117258289509761688",
+      "red_social": "mastodon",
+      "fecha": "2026-09-12",
+      "created_at_utc": "2026-09-12T13:25:05.467Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    },
+    {
+      "id": "117211044720698032",
+      "red_social": "mastodon",
+      "fecha": "2026-09-04",
+      "created_at_utc": "2026-09-04T05:10:05.000Z",
+      "respuestas": 0,
+      "compartidos": 5,
+      "favoritos": 5,
+      "interacciones_totales": 10
+    },
+    {
+      "id": "117203573148928943",
+      "red_social": "mastodon",
+      "fecha": "2026-09-02",
+      "created_at_utc": "2026-09-02T21:30:00.000Z",
+      "respuestas": 0,
+      "compartidos": 0,
+      "favoritos": 0,
+      "interacciones_totales": 0
+    }
+  ]
+}

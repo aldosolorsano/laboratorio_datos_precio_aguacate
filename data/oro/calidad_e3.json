@@ -1,0 +1,16 @@
+{
+  "pipeline": "e3-optimizado",
+  "fecha_compilacion_utc": "2026-11-26T18:49:07.223702+00:00",
+  "filas_totales_curadas": 15338,
+  "mercados_cubiertos": 44,
+  "dias_observados": 391,
+  "trazabilidad_bronce_oro_pct": 100.0,
+  "metricas_rendimiento": {
+    "tiempo_ejecucion_segundos": 3.311,
+    "memoria_dataframe_ram_mb": 10.57,
+    "tamano_csv_mb": 4.68,
+    "tamano_parquet_mb": 0.11,
+    "reduccion_tamano_parquet_vs_csv_pct": 97.7
+  },
+  "licencia_dataset": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+}

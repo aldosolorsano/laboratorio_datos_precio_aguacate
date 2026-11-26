@@ -1,198 +1,202 @@
 {
   "_meta": {
-    "pipeline": "e2",
-    "generado_utc": "2026-11-25T22:45:53.650805+00:00",
-    "filas_cotizaciones_e2": 15338,
-    "descripcion": "Grafo de linaje y trazabilidad completa de registros de Capa Oro a Capa Bronce"
+    "pipeline": "e3-optimizado",
+    "generado_utc": "2026-11-26T18:49:10.468812+00:00",
+    "filas_curadas": 15338,
+    "optimizaciones": [
+      "vectorizacion",
+      "downcasting_memoria_float32_category",
+      "persistencia_parquet_snappy"
+    ]
   },
-  "nodos": {
-    "bronce_sniim": [
+  "fuentes_bronce": {
+    "sniim_precios": [
       {
         "ruta": "sniim/2026-11-08/aguacate_hass_primera_2026-10-01_2026-11-08_p01.html",
-        "sha256": "d1ec99d5322e0e4bcf3acdc93d2c0970071ae254162102520bc9a15be13d1caf"
+        "sha256": "867ed94b4396725be804271c874d4a64e5be7dc75306753a5b3f7f120765cc1d"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2023-11-09_2024-05-06_p01.html",
-        "sha256": "3206ef6c5ece67d933a45c3066d0e694541e27e806d6d46c5562543c8a1e38e3"
+        "sha256": "d6a4afb0220015375f0cf1be6fc5bc18a4c16a5ceda6bd486984bb0498705306"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2023-11-09_2024-05-06_p02.html",
-        "sha256": "48cc6e5457dc5c8977518e93f59e0a690c8f2f07dad79282df115b3454d24ccc"
+        "sha256": "f600e13f00675bb020c65482720cd7d00a6af03f0d2b25d1fb5e27b980e17d3b"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p01.html",
-        "sha256": "c12ccda101d71accbf1a3c930731d3f0bec7126116f0a88dff4b1d9db3e336fb"
+        "sha256": "e264b51310b7cb2f21048c303f6c8c646db7d4b203fc68e932767e0ac2d6c0c8"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p02.html",
-        "sha256": "078614d7f00f8751d44908b2268faa5c8c2e0ca6d863fa9515b7778733e637aa"
+        "sha256": "770a975fb87df8f184d7c16d95c1bad8fdcf76d38679573d6f65cfffb87e42ed"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p03.html",
-        "sha256": "ea6928acc28242c178c2de3cb111fdd65c210771bc638fbd160fad84c91e087c"
+        "sha256": "49d93ed6c8c7be598e1d9be96a86d43253a6ff712a77e7da3731667f94a3d586"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p04.html",
-        "sha256": "aebefd4200eded3fce32accc5f11d19cd3b49f83becd95056f9a4bfd7c08f76d"
+        "sha256": "4ddf1177ccd6142f930647c30cc403d4f479c805ed25d365956f02eaa4716679"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p05.html",
-        "sha256": "637f8ba25f8aa1e457f456cc326354a02a8694a82c4057dd6a9002483c15722a"
+        "sha256": "3922056201068d0647bbbfc5a0449a32257a64254d96e692c4be2f9c0d12fdd7"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p06.html",
-        "sha256": "e617fac10b4ff5ca5db3ccb18135291f89411d2d5e3fa5c1c79df61dc932a0ff"
+        "sha256": "3941d180490afeb6e839ce266e3e10428ba956c2566258dd4b2df32f0bf9f555"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p07.html",
-        "sha256": "95c185bf18fb539d5aea0bb7a2537d09133ecba3acdd50e95f4fda892deb48b3"
+        "sha256": "5f39833cc589cf49abaf94ca0bb787ff15260b75f15ee04742e2d0265fef3330"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p08.html",
-        "sha256": "e6273777c78c4f2e72f9f28760a50987004690280a249ef0e4c4066b104cbe38"
+        "sha256": "76471b4504762d879f5bf817df0d93d937b16e8d631702208e6c3143a5f184eb"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p09.html",
-        "sha256": "8ff22da1d7df196600697ef82c2a8a557515dea48790bd6c7c1bf60ca5b11d97"
+        "sha256": "ff796745373c244fbde0b25faa142d7893692680b5bb5082168c1fa42e3cbf14"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p10.html",
-        "sha256": "61f090ad14a661ba086e6c07d3155822b608b469aa6b6c944ae7b6d03967cf0b"
+        "sha256": "237feb7bd1548ed435b97c92a40017c17b22f635b4420dcd7aaa38a5345d2a30"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p11.html",
-        "sha256": "333f43c630158526506d75b8f1f1763c922ce4a7bc3e4e9bea2fa7a12a9fda60"
+        "sha256": "fa55674fe1b201309390455dc7bd9d0537a9181ba27b74ca098ca0246f3685f4"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p01.html",
-        "sha256": "2193f441ab04bf7238ad700448f97c735a6fda0b5e24fda215ddff1ef2daf177"
+        "sha256": "913dbc23c74a20bc77add7fe7fa38cb234548888acf917fa1c86e40209db6560"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p02.html",
-        "sha256": "2caf03ad40302faa31ab389bcc5cad2b9958230ce34399fb9a90099c15955740"
+        "sha256": "3a5987ab360a37e6836f671ffd8c5334a8bc519c9e899d2be2524c1c4d70031d"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p03.html",
-        "sha256": "153998fe20c3f3945b4674ccaac8ff7743081549a75fee9b75b6b5dcdfdfe615"
+        "sha256": "5724d6f99637438b92f39663abe08bf9506222e8e4cf9bcbe423aa2d3b640d04"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p04.html",
-        "sha256": "0a0893ae0daa3d18fafbffd7cc042e290526674d524d7329ee6b9cead926343e"
+        "sha256": "a6005250975796fa1d1d97a5f01ebf235d356ea5877e552463c0723cfddbdb8a"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p05.html",
-        "sha256": "8a87bb77ef3d0c3d33255d521c0d6599b77e47cef020659f80405e0b9d9c1036"
+        "sha256": "0663859e84157afe31fd7d1398b1e9914173dfb4b806703506bba8a6ed64d08e"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p06.html",
-        "sha256": "a848569196fe3d441b3fcb04964641a475c1f84df3f2d0cabe13bc432799663f"
+        "sha256": "7defa94ff75db1175ec3c49c11b6e26a14a12fb8ee79f347b374a0db2d8508cc"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2024-11-03_2025-05-01_p07.html",
-        "sha256": "e988f4e085ff5bd269dd82062833da1b1c8e520f3d7d6528e0f8f77d798dd782"
+        "sha256": "4f3fa726f93bdfd570a7c7387e2974336c85566b95303f80068eba098c5d81f1"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p01.html",
-        "sha256": "3bfae134c7b54e8640c42d775f3d0f3cc9486058c10e8c89f77a7d65c57ade16"
+        "sha256": "e463707a82ba963a6d366ac573933a7e0cbcb1f663823f738c55c1eb598423f5"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p02.html",
-        "sha256": "f772124def0d8c2b41ad50c803c21cd97d57261750bb822a73142cdcfc12ce53"
+        "sha256": "922952bcfd3c17f6415f2d6d152a43da4833729879f68fd6dd4e678d6b6bfbc2"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p03.html",
-        "sha256": "05a6f4e8ca288a8c4d5ce21bcd582f2b4eb01b49fa446751aa55a1def358ff75"
+        "sha256": "6091020d87e18cd0e5efe5929affd919b358c6f32e67b8cb13dcd5fadbf47d5c"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p04.html",
-        "sha256": "6a845365d184c3399092d1745ba225003916e1bc611f2c4e7a4dc474d1ab6b1d"
+        "sha256": "7fdddf62da16925a3b3a57cc4e4b10284064a5ee62fd0a0791598938d2759933"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p05.html",
-        "sha256": "d468644d1e9e086de8d787d36e70a3180307e84d4b04b309d94e3bd68d6c523c"
+        "sha256": "5dc47e8f7942019cd52ea51c8146be1968d494194bbbb1905f94efac0147b3f8"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p06.html",
-        "sha256": "23db9de1586afd7fc59165c06140fcb88bc3ccb37dab540b2b23c3602616d1df"
+        "sha256": "954fda8be710d8f8267ee90374f25e9301b842a5dc732c66de863f215120a1ce"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p07.html",
-        "sha256": "c265462e2e6b2c0570f108776f6a8ed46ee21c530be7ecabe99b758f3379eb2e"
+        "sha256": "57e91c735c5d299f939409591f8049cc02555a0b82264c202a1d610a6297241f"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p08.html",
-        "sha256": "febaa28baf402bbc204032198f9d40cc87b1f530ae81b47cea4e42d290c67033"
+        "sha256": "006ce3b1d03ffcb8062e0083e27433f050b266b783c218e0f404ba9a200bbdec"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p09.html",
-        "sha256": "40a8ea98c7b626dba8154f41d26cd43ff2412fe05a00a8f1eb538ac02076632d"
+        "sha256": "649fcf5165bda70aa9d110e7ce824851f9a4d8c3aab2cd2f88d8c3013ad0229e"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p10.html",
-        "sha256": "c37c283eea03a9e669ccc86daf1f48f8388ca2ac6a2a1d994fc51749de8271b9"
+        "sha256": "dd2a19019cd9ef0f973555dfb6a4544d892670a0ec73133dbb0d2bd2a75006ed"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2025-10-29_2026-04-26_p01.html",
-        "sha256": "01a16202377a9cdf933626d31a5ac9ebdc977655d4d04e81cf2838c6b081163f"
+        "sha256": "1aad74313d98fa963ce1208cb39537f4cd57c4dbfb28abd9698892dcee04b83a"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p01.html",
-        "sha256": "d961b479d5118bcd810f689a26e575e45e83486341e847c8ff95cd04a2983ddf"
+        "sha256": "44148fb7f9012a28fbd0bd6408157a3e11fb54cd438b956b8f3f2f5f76eed703"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p02.html",
-        "sha256": "2ccf00eccd04a3a778bb6b7909cec6ac80bef119f307df88f5c129994a972e6c"
+        "sha256": "cdc782e6572583eb68503ec9d897341ead032637dfa9c9671374300faa293a75"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p03.html",
-        "sha256": "7f29a56a5bf2cb38ab2c7a911bfe4182fefe3850339e6a7a6a79bcf31fab3d98"
+        "sha256": "8af53f1175150ed53e2f1ae3f7a413e116eeea83f760ce36b061f89bb271829b"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p04.html",
-        "sha256": "a8af102c48f06c4fdd590ca97bf4347f9f11f4b079856b71ffef7b16a52175d7"
+        "sha256": "73dafd1826e383921af3aee272c2ce0bb67da08b2aa1afd3169e724f88e16290"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p05.html",
-        "sha256": "e18430f3c75a39ae9aecfca9029ab591467249469a2f2682ae9f86d348732c39"
+        "sha256": "7fa15db646e3896f541670c8d16313facbb8753914ebeb4a8d8ddeeafa606b7b"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p06.html",
-        "sha256": "9e4cc0f5fece75b3075791c8a14d1092a8d9af3fb64d8e8e2dbaf76e315d2c50"
+        "sha256": "66ba611a61a85432aa1edb9df0db0a496b993fd8616aeb237185d7e09d597bcb"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p07.html",
-        "sha256": "3a46c67031a08555720582a2799f60702dde29aa6b47479e3e8cc8a9d3333d83"
+        "sha256": "96c510c77574b0e5ed95be204ccc51a488f09eb2bddbeecb252984cdb0f7126d"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p08.html",
-        "sha256": "0df1f5d94fc8acebfada731854c3e5a18f463e76b9513f2c835db4eac908c1c9"
+        "sha256": "e915a38ac5670400daa9578308ea3ac8b4d30d05a921a20438a41dda9cbb23e9"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p09.html",
-        "sha256": "bf19d8703972cea92ed0d95411f05a90de7fbeb301385c852e1949cfd495eba6"
+        "sha256": "ae4fc72539415010b416c8f61af02fd0f26a9a96bde3310c7325bb3f44028a34"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p10.html",
-        "sha256": "e6471b1912ff2c37e3f1615799f920573198f4c71a3001e72595edbe4b843ed8"
+        "sha256": "6495f5a5b08c622ea7df1dc5445bc839aa88c19689b8640a330ff2a86292e039"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p01.html",
-        "sha256": "d248d21705c6f71dd55a8dce6f29e7f7bab733144980b396e2e72d344b4815cd"
+        "sha256": "b32ed462a24a72226c754cf1cb69514c1e7331ce0ed23fd8ebd31479249d742b"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p02.html",
-        "sha256": "f404a148a4656ef55d6d15882755935d7ce25b90601eb121e9be72c80185e3fd"
+        "sha256": "9f04e81321e77f5ca72a08ed19116ca024b44dc24397c2da0dd200ccfbc7d9a3"
       },
       {
         "ruta": "sniim/2026-11-09/aguacate_hass_primera_2026-10-24_2026-11-09_p01.html",
-        "sha256": "096c16f4129b54731c27dc69074e5e5cc40d29bad2cba8b356fa13b77b35377c"
+        "sha256": "71e56f75c2b166cbb7f70b3610f0a6e41594a9f3167e4103756323cdd6d8f536"
       },
       {
         "ruta": "sniim/2026-11-13/aguacate_hass_primera_2026-10-01_2026-10-07_p01.html",
-        "sha256": "e3134f88ca9c9ab9d908d60f1b9ce099112bcd00e39d7693cb4e6a3e8b62ba83"
+        "sha256": "6e96ecabddba43314aded65d3a48c5932506a43bde8300228d27b8739191e524"
       }
     ],
-    "bronce_banxico": [
+    "banxico_fix": [
       {
         "ruta": "banxico/usdmxn_2026-11-08.json",
         "sha256": "d15d6ec0d7b8c6b15f6e66ab2cb7750f48bf9fd9ea620177442f8f6dfbb7375d"
@@ -266,7 +270,7 @@
         "sha256": "18845b8a3cd296f03c3f3af604790ef1e1695dd0c734dc6af2e384a27bcfabea"
       }
     ],
-    "bronce_clima": [
+    "openmeteo_clima": [
       {
         "ruta": "openmeteo/ciudad_guzman_jal_2026-11-08.json",
         "sha256": "59124bf813d17e43bf8248fd96148d9a9e11c0aa88b3698341ee604683d32c04"
@@ -484,74 +488,27 @@
         "sha256": "c97c739b88347cab6c96a63e579025306e4ee55d30cf25c31e729c6a2bdc2683"
       }
     ],
-    "bronce_reddit": []
+    "redes_mastodon": [
+      {
+        "ruta": "redes/redes_aguacate_2026-11-26.json",
+        "sha256": "bd2872e283aab0d83f2d12ceb87577e4abca1112b98d4ea05e0dbaf1ff622e85"
+      }
+    ],
+    "redes_reddit": [
+      {
+        "ruta": "reddit/reddit_aguacate_2026-11-22.json",
+        "sha256": "7714a4fafa870cc606550346b11eb48e4474a9c145550c1699f4634f5e76c13f"
+      }
+    ]
   },
-  "aristas": {
-    "sniim_en_oro": [
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p01.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p02.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p03.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p04.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p05.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p06.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p07.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p08.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p09.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p10.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2024-05-07_2024-11-02_p11.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p01.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p02.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p03.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p04.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p05.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p06.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p07.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p08.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p09.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2025-05-02_2025-10-28_p10.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p01.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p02.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p03.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p04.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p05.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p06.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p07.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p08.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p09.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-04-27_2026-10-23_p10.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p01.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-10-01_2026-11-09_p02.html",
-      "sniim/2026-11-09/aguacate_hass_primera_2026-10-24_2026-11-09_p01.html"
-    ],
-    "banxico_en_oro": [
-      "banxico/usdmxn_2026-11-25.json"
-    ],
-    "clima_en_oro": [
-      "openmeteo/ciudad_guzman_jal_2026-11-25.json",
-      "openmeteo/tancitaro_mich_2026-11-25.json",
-      "openmeteo/uruapan_mich_2026-11-25.json"
-    ],
-    "reddit_en_oro": []
+  "trazabilidad": {
+    "archivo_origen_primario": "archivo_sniim",
+    "fecha_ingesta_bronce": "ingesta_bronce_fecha",
+    "timestamp_procesamiento_utc": "_procesado_utc"
   },
-  "reglas_trazabilidad": {
-    "clave_registro_oro": [
-      "fecha",
-      "presentacion",
-      "origen",
-      "mercado"
-    ],
-    "trazabilidad_primaria": {
-      "origen_bronce": "archivo_sniim",
-      "fecha_ingesta_bronce": "ingesta_bronce_fecha"
-    },
-    "trazabilidad_contextual": {
-      "origen_tipo_cambio": "archivo_banxico",
-      "origen_clima": "archivo_clima",
-      "origen_redes_sociales": "archivo_reddit"
-    }
-  },
-  "salidas": {
-    "cotizaciones_e2": "data\\oro\\cotizaciones_e2.csv",
-    "reddit_metricas_diarias_oro": "data\\oro\\reddit_metricas_diarias.csv"
+  "artefactos_generados": {
+    "dataset_curado_csv": "data\\curado\\precios_aguacate_mexico.csv",
+    "dataset_curado_parquet": "data\\curado\\precios_aguacate_mexico.parquet",
+    "calidad_metricas": "data\\oro\\calidad_e3.json"
   }
 }

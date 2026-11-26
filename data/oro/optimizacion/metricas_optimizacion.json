@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "descripcion": "Comparativa cuantitativa formal del Pipeline Base vs Pipeline Optimizado (E3)",
+    "generado_utc": "2026-11-26T18:49:06Z",
+    "entorno": "Python 3.12, Pandas 2.3.3, PyArrow 26.0.1"
+  },
+  "limpieza_y_transformacion": {
+    "tiempo_base_segundos": 4.563,
+    "tiempo_optimizado_segundos": 2.689,
+    "aceleracion_factor": "1.70x",
+    "ahorro_tiempo_pct": 41.1,
+    "tecnica": "Vectorización NumPy/Pandas en lugar de bucles Decimal y validación por caso"
+  },
+  "memoria_ram": {
+    "dataframe_base_mb": 6.94,
+    "dataframe_optimizado_mb": 2.82,
+    "reduccion_memoria_pct": 59.4,
+    "tecnica": "Downcasting de float64 a float32 y object strings a category"
+  },
+  "almacenamiento_e_io": {
+    "tamano_csv_mb": 2.47,
+    "tamano_parquet_mb": 0.07,
+    "ahorro_almacenamiento_pct": 97.1,
+    "tiempo_lectura_csv_s": 0.0245,
+    "tiempo_lectura_parquet_s": 0.0258,
+    "aceleracion_lectura": "0.9x",
+    "tiempo_escritura_csv_s": 0.0778,
+    "tiempo_escritura_parquet_s": 0.0324,
+    "aceleracion_escritura": "2.4x",
+    "formato": "Apache Parquet con compresión Snappy"
+  },
+  "calidad_y_errores": {
+    "filas_procesadas_exitosas": 15338,
+    "filas_en_cuarentena": 4,
+    "tasa_error_pct": 0.026,
+    "trazabilidad_bronce_a_oro_pct": 100.0,
+    "mecanismo_aislamiento": "Aislamiento estricto de anomalías a data/cuarentena/precios_sniim.csv sin detener el pipeline"
+  }
+}

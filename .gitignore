@@ -5,5 +5,11 @@ data/plata/
 data/oro/*
 !data/oro/linaje.json
 !data/oro/calidad_e2.json
+!data/oro/calidad_e3.json
 !data/oro/calidad.json
+!data/oro/optimizacion/
+!data/oro/optimizacion/*
 data/cuarentena/
+data/benchmark_base/
+data/benchmark_opt/
+data/benchmark_io/
