@@ -37,6 +37,20 @@ El dataset limpio y estandarizado está disponible en la carpeta `data/curado/` 
 - [`data/curado/precios_aguacate_mexico.parquet`](data/curado/precios_aguacate_mexico.parquet): Formato columnar binario comprimido con Snappy (apenas 110 KB con tipos estrictos).
 - Consulta la ficha técnica completa y guía para el público en general en [`docs/E3/datasheet.md`](docs/E3/datasheet.md).
 
+## 🔄 Automatización Semanal Desatendida (Sin Intervención Humana)
+Dado que el mercado mayorista del aguacate actualiza precios y cotizaciones continuamente, el sistema está configurado para actualizarse **de forma 100% automática semana a semana sin que el usuario tenga que ejecutar código**:
+
+1. **En la Nube (GitHub Actions - Recomendado)**:
+   - El flujo [`.github/workflows/actualizacion-automatica.yml`](.github/workflows/actualizacion-automatica.yml) se ejecuta automáticamente en los servidores de GitHub **todos los lunes a las 8:00 AM hora de la Ciudad de México**.
+   - Descarga las cotizaciones del SNIIM, Banxico, Open-Meteo y redes sociales, regenera el pipeline optimizado E3, reentrena los modelos econométricos (ARIMA y Holt), produce el nuevo tablero interactivo y guarda los cambios en el repositorio.
+   - **Visualización en Vivo**: El tablero se publica directamente vía GitHub Pages en:  
+     👉 **[https://aldosolorsano.github.io/laboratorio_datos_precio_aguacate/](https://aldosolorsano.github.io/laboratorio_datos_precio_aguacate/)** (o abriendo [`docs/index.html`](docs/index.html) / [`data/oro/pronostico/tablero.html`](data/oro/pronostico/tablero.html)).
+   - **Ejecución Manual en 1 Clic**: También puedes ir a la pestaña **Actions** en GitHub, seleccionar *Actualización Semanal Automática* y presionar **Run workflow** para forzar la actualización en cualquier instante desde tu celular o computadora sin tocar la consola.
+
+2. **En tu Computadora (Local / Windows)**:
+   - Si prefieres ejecutar la actualización en tu equipo de forma desatendida, simplemente dale doble clic al archivo ejecutable [`actualizar_semanal.bat`](actualizar_semanal.bat).
+   - Puedes programarlo en el **Programador de Tareas de Windows (Task Scheduler)** para que se abra cada lunes en segundo plano.
+
 ## Estructura del Repositorio
 - `src/extractores/`: Extractores éticos (SNIIM, Banxico, Open-Meteo, Mastodon API real, Reddit).
 - `src/transformadores/`: Transformadores de limpieza, normalización y linaje.

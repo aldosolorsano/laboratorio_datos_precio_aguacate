@@ -283,6 +283,12 @@ footer {{text-align:center; margin:3.5rem 0 1.5rem; font-size:0.9rem; color:#6b7
     salida.parent.mkdir(parents=True, exist_ok=True)
     salida.write_text(documento, encoding="utf-8")
     print(f"Tablero final generado en: {salida}")
+    
+    # Sincronizar automáticamente con docs/index.html para publicación web (GitHub Pages)
+    docs_idx = Path("docs/index.html")
+    docs_idx.parent.mkdir(parents=True, exist_ok=True)
+    docs_idx.write_text(documento, encoding="utf-8")
+    print(f"Copia para GitHub Pages generada en: {docs_idx}")
 
 
 if __name__ == "__main__":

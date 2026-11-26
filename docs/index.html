@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Observatorio del Aguacate Hass | Inteligencia de Mercado</title>
+<style>
+:root {
+    --color-primario: #1b4332;
+    --color-secundario: #2d6a4f;
+    --color-acento: #40916c;
+    --color-fondo: #f5f7f4;
+    --color-tarjeta: #ffffff;
+    --color-borde: #d8e2dc;
+    --color-texto: #1a201c;
+    --color-muted: #526156;
+}
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    max-width: 72rem;
+    margin: 2rem auto;
+    padding: 0 1.25rem;
+    line-height: 1.6;
+}
+header {
+    background: linear-gradient(135deg, #1b4332, #2d6a4f, #081c15);
+    color: white;
+    padding: 2.25rem;
+    border-radius: 0.85rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+header h1 {margin:0 0 0.5rem 0; font-size:2.2rem; font-weight: 800;}
+header p {margin:0; opacity:0.95; font-size:1.1rem;}
+.banner-guia {
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-left: 5px solid #2e7d32;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+.banner-guia h3 {margin: 0 0 0.5rem 0; color: #1b5e20; font-size: 1.15rem;}
+.banner-guia p {margin: 0.3rem 0; font-size: 0.95rem; color: #2e4732;}
+section {
+    margin: 2rem 0;
+    padding: 1.75rem;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+h2 {color: var(--color-primario); margin-top: 0; font-size: 1.45rem; border-bottom: 2px solid #e9f0ec; padding-bottom: 0.5rem;}
+h3 {color: var(--color-secundario); margin-top: 1.5rem; font-size: 1.15rem;}
+table {border-collapse: collapse; width: 100%; margin-top: 1rem; font-size: 0.95rem;}
+td, th {text-align: left; padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--color-borde);}
+th {background: #ebf3ee; color: var(--color-primario); font-weight: 600;}
+tr:hover {background: #f8faf8;}
+.meta-info {font-size: 0.95rem; color: var(--color-muted);}
+.alerta-exploratoria {
+    background: #fff9db;
+    border: 1px solid #ffe066;
+    border-left: 4px solid #f59f00;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0.35rem;
+    font-size: 0.9rem;
+    color: #664d03;
+}
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+.kpi-card {
+    background: #fbfdfb;
+    border: 1px solid #dce8df;
+    padding: 1.15rem;
+    border-radius: 0.6rem;
+    text-align: center;
+}
+.opt-card {border-top: 4px solid #2d6a4f;}
+.kpi-label {display:block; font-size:0.8rem; color:#526156; text-transform:uppercase; font-weight:700; letter-spacing: 0.5px;}
+.kpi-value {display:block; font-size:2rem; font-weight:bold; color:var(--color-primario); margin:0.3rem 0;}
+.kpi-sub {display:block; font-size:0.82rem; color:#6b7c72;}
+footer {text-align:center; margin:3.5rem 0 1.5rem; font-size:0.9rem; color:#6b7c72; border-top: 1px solid #d8e2dc; padding-top: 1.5rem;}
+</style>
+</head>
+<body>
+<header>
+    <h1>🥑 Observatorio de Precios del Aguacate Hass</h1>
+    <p>Plataforma de Inteligencia Mayorista, Modelos Predictivos y Trazabilidad Institucional (E3)</p>
+</header>
+<main>
+
+    <div class="banner-guia">
+        <h3>💡 ¿Cómo interpretar este tablero sin ser experto en datos?</h3>
+        <p>• <strong>Precios Mayoristas (Centrales de Abasto)</strong>: Los precios mostrados corresponden a compras por caja al por mayor (ej. Central de Iztapalapa, Guadalajara o Monterrey). Son entre 30% y 60% menores que en el supermercado minorista.</p>
+        <p>• <strong>Intervalo de Confianza (95%)</strong>: Las bandas inferior y superior indican el rango estadístico más probable donde se moverá el precio en las próximas semanas según la tendencia climática y macroeconómica.</p>
+        <p>• <strong>Trazabilidad y Origen</strong>: Cada cotización proviene de registros de la Secretaría de Economía (SNIIM), Banxico y redes sociales.</p>
+    </div>
+
+    <section>
+        <h2>⚡ Rendimiento del Pipeline Optimizado (Benchmark Cuantitativo)</h2>
+        <p>Resultados medidos formalmente del Pipeline E3 frente al Pipeline base:</p>
+        
+            <div class="kpi-grid">
+                <div class="kpi-card opt-card">
+                    <span class="kpi-label">Aceleración de Limpieza</span>
+                    <span class="kpi-value">1.97x</span>
+                    <span class="kpi-sub">Vectorización NumPy/Pandas</span>
+                </div>
+                <div class="kpi-card opt-card">
+                    <span class="kpi-label">Ahorro de Memoria RAM</span>
+                    <span class="kpi-value">59.4%</span>
+                    <span class="kpi-sub">Downcasting float32 + category</span>
+                </div>
+                <div class="kpi-card opt-card">
+                    <span class="kpi-label">Ahorro en Almacenamiento</span>
+                    <span class="kpi-value">97.1%</span>
+                    <span class="kpi-sub">Apache Parquet con Snappy</span>
+                </div>
+                <div class="kpi-card opt-card">
+                    <span class="kpi-label">Trazabilidad Auditable</span>
+                    <span class="kpi-value">100%</span>
+                    <span class="kpi-sub">Hashes SHA-256 en linaje.json</span>
+                </div>
+            </div>
+            
+    </section>
+
+    
+    <section class="seccion-redes">
+        <h2>🌐 Pulso de Redes Sociales en Tiempo Real</h2>
+        <p>Mide la actividad, quejas y comentarios públicos de los consumidores sobre el costo del aguacate. Permite a los compradores anticipar si el consumidor final rechazará precios excesivamente altos.</p>
+        
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <span class="kpi-label">Publicaciones</span>
+            <span class="kpi-value">297</span>
+            <span class="kpi-sub">Monitoreo en redes</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Comentarios Registrados</span>
+            <span class="kpi-value">51</span>
+            <span class="kpi-sub">Respuestas y opiniones</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Interacciones Totales</span>
+            <span class="kpi-value">+506</span>
+            <span class="kpi-sub">Reacciones en comunidad</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Compartidos y Favoritos</span>
+            <span class="kpi-value">455</span>
+            <span class="kpi-sub">Difusión del tema</span>
+        </div>
+    </div>
+    
+        <h3>Últimas Fechas Registradas con Trazabilidad Auditable</h3>
+        <table><thead><tr><th scope='col'>Fecha</th><th scope='col'>Publicaciones</th><th scope='col'>Comentarios</th><th scope='col'>Favoritos</th><th scope='col'>Compartidos</th><th scope='col'>Interacciones</th><th scope='col'>Origen en Capa Bronce</th></tr></thead><tbody><tr><td>2026-11-17</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-18</td><td>3</td><td>2</td><td>0</td><td>0</td><td>2</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-19</td><td>2</td><td>3</td><td>3</td><td>2</td><td>8</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-20</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-21</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-22</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-23</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr><tr><td>2026-11-26</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>data/bronce/redes/redes_aguacate_2026-11-26.json</td></tr></tbody></table>
+    </section>
+    
+
+    <section><h2>🏢 DF: Central de Abasto de Iztapalapa DF</h2><p class='meta-info'>Evaluación retrospectiva en histórico continuo hasta 2026-11-02. Modelo con menor error: <strong>ARIMA</strong> (MAE: $2.13 vs. $2.85 repitiendo último precio).</p><table><thead><tr><th scope='col'>Modelo Econométrico</th><th scope='col'>Error Medio (MAE)</th><th scope='col'>RMSE</th><th scope='col'>Error % (MAPE)</th></tr></thead><tbody><tr><td>Suavizamiento simple</td><td>$2.85 MXN/kg</td><td>$3.15</td><td>8.1%</td></tr><tr><td>Holt</td><td>$7.26 MXN/kg</td><td>$8.34</td><td>20.5%</td></tr><tr><td>ARIMA</td><td>$2.13 MXN/kg</td><td>$2.48</td><td>6.1%</td></tr><tr><td>Holt-Winters</td><td>$5.28 MXN/kg</td><td>$6.48</td><td>14.9%</td></tr></tbody></table><h3>📈 Proyección de Precios Mayoristas (Próximas Semanas)</h3><div class='alerta-exploratoria'>ℹ️ <strong>Nota de Incertidumbre</strong>: Proyección calculada con intervalo del 95% basada en la tendencia observada de mercado.</div><table><thead><tr><th scope='col'>Semana de Pronóstico</th><th scope='col'>Precio Estimado</th><th scope='col'>Rango Mínimo (IC 95%)</th><th scope='col'>Rango Máximo (IC 95%)</th></tr></thead><tbody><tr><td>2026-11-09</td><td>$36.43 MXN/kg</td><td>$30.41 MXN/kg</td><td>$42.46 MXN/kg</td></tr><tr><td>2026-11-16</td><td>$36.77 MXN/kg</td><td>$26.44 MXN/kg</td><td>$47.11 MXN/kg</td></tr><tr><td>2026-11-23</td><td>$36.91 MXN/kg</td><td>$22.99 MXN/kg</td><td>$50.83 MXN/kg</td></tr><tr><td>2026-11-30</td><td>$36.96 MXN/kg</td><td>$20.00 MXN/kg</td><td>$53.93 MXN/kg</td></tr><tr><td>2026-12-07</td><td>$36.98 MXN/kg</td><td>$17.37 MXN/kg</td><td>$56.60 MXN/kg</td></tr><tr><td>2026-12-14</td><td>$36.99 MXN/kg</td><td>$15.02 MXN/kg</td><td>$58.97 MXN/kg</td></tr><tr><td>2026-12-21</td><td>$37.00 MXN/kg</td><td>$12.89 MXN/kg</td><td>$61.11 MXN/kg</td></tr><tr><td>2026-12-28</td><td>$37.00 MXN/kg</td><td>$10.92 MXN/kg</td><td>$63.07 MXN/kg</td></tr></tbody></table></section><section><h2>🏢 Jalisco: Mercado Felipe Ángeles de Guadalajara</h2><p class='meta-info'>Evaluación retrospectiva en histórico continuo hasta 2026-11-02. Modelo con menor error: <strong>Holt</strong> (MAE: $1.63 vs. $4.38 repitiendo último precio).</p><table><thead><tr><th scope='col'>Modelo Econométrico</th><th scope='col'>Error Medio (MAE)</th><th scope='col'>RMSE</th><th scope='col'>Error % (MAPE)</th></tr></thead><tbody><tr><td>Suavizamiento simple</td><td>$4.38 MXN/kg</td><td>$4.68</td><td>11.7%</td></tr><tr><td>Holt</td><td>$1.63 MXN/kg</td><td>$1.90</td><td>4.3%</td></tr><tr><td>ARIMA</td><td>$4.38 MXN/kg</td><td>$4.68</td><td>11.7%</td></tr><tr><td>Holt-Winters</td><td>$5.35 MXN/kg</td><td>$5.65</td><td>14.2%</td></tr></tbody></table><h3>📈 Proyección de Precios Mayoristas (Próximas Semanas)</h3><table><thead><tr><th scope='col'>Semana de Pronóstico</th><th scope='col'>Precio Estimado</th><th scope='col'>Rango Mínimo (IC 95%)</th><th scope='col'>Rango Máximo (IC 95%)</th></tr></thead><tbody><tr><td>2026-11-09</td><td>$36.50 MXN/kg</td><td>$23.69 MXN/kg</td><td>$57.25 MXN/kg</td></tr><tr><td>2026-11-16</td><td>$35.50 MXN/kg</td><td>$23.69 MXN/kg</td><td>$57.25 MXN/kg</td></tr><tr><td>2026-11-23</td><td>$34.50 MXN/kg</td><td>$21.19 MXN/kg</td><td>$59.50 MXN/kg</td></tr><tr><td>2026-11-30</td><td>$33.50 MXN/kg</td><td>$18.69 MXN/kg</td><td>$60.50 MXN/kg</td></tr><tr><td>2026-12-07</td><td>$32.50 MXN/kg</td><td>$17.43 MXN/kg</td><td>$64.25 MXN/kg</td></tr><tr><td>2026-12-14</td><td>$31.50 MXN/kg</td><td>$15.50 MXN/kg</td><td>$64.26 MXN/kg</td></tr><tr><td>2026-12-21</td><td>$30.50 MXN/kg</td><td>$13.60 MXN/kg</td><td>$69.50 MXN/kg</td></tr><tr><td>2026-12-28</td><td>$29.50 MXN/kg</td><td>$12.49 MXN/kg</td><td>$72.76 MXN/kg</td></tr></tbody></table></section><section><h2>🏢 Jalisco: Mercado de Abasto de Guadalajara</h2><p class='meta-info'>Evaluación retrospectiva en histórico continuo hasta 2026-11-02. Modelo con menor error: <strong>ARIMA</strong> (MAE: $1.91 vs. $1.91 repitiendo último precio).</p><table><thead><tr><th scope='col'>Modelo Econométrico</th><th scope='col'>Error Medio (MAE)</th><th scope='col'>RMSE</th><th scope='col'>Error % (MAPE)</th></tr></thead><tbody><tr><td>Suavizamiento simple</td><td>$1.91 MXN/kg</td><td>$2.57</td><td>6.7%</td></tr><tr><td>Holt</td><td>$1.91 MXN/kg</td><td>$2.57</td><td>6.7%</td></tr><tr><td>ARIMA</td><td>$1.91 MXN/kg</td><td>$2.57</td><td>6.7%</td></tr><tr><td>Holt-Winters</td><td>$2.60 MXN/kg</td><td>$3.12</td><td>9.0%</td></tr></tbody></table><h3>📈 Proyección de Precios Mayoristas (Próximas Semanas)</h3><table><thead><tr><th scope='col'>Semana de Pronóstico</th><th scope='col'>Precio Estimado</th><th scope='col'>Rango Mínimo (IC 95%)</th><th scope='col'>Rango Máximo (IC 95%)</th></tr></thead><tbody><tr><td>2026-11-09</td><td>$26.67 MXN/kg</td><td>$15.78 MXN/kg</td><td>$37.55 MXN/kg</td></tr><tr><td>2026-11-16</td><td>$26.67 MXN/kg</td><td>$11.28 MXN/kg</td><td>$42.06 MXN/kg</td></tr><tr><td>2026-11-23</td><td>$26.67 MXN/kg</td><td>$7.82 MXN/kg</td><td>$45.52 MXN/kg</td></tr><tr><td>2026-11-30</td><td>$26.67 MXN/kg</td><td>$4.90 MXN/kg</td><td>$48.43 MXN/kg</td></tr><tr><td>2026-12-07</td><td>$26.67 MXN/kg</td><td>$2.33 MXN/kg</td><td>$51.00 MXN/kg</td></tr><tr><td>2026-12-14</td><td>$26.67 MXN/kg</td><td>$0.01 MXN/kg</td><td>$53.32 MXN/kg</td></tr><tr><td>2026-12-21</td><td>$26.67 MXN/kg</td><td>$0.00 MXN/kg</td><td>$55.46 MXN/kg</td></tr><tr><td>2026-12-28</td><td>$26.67 MXN/kg</td><td>$0.00 MXN/kg</td><td>$57.45 MXN/kg</td></tr></tbody></table></section><section><h2>🏢 Nuevo León: Mercado de Abasto &quot;Estrella&quot; de San Nicolás de los Garza</h2><p class='meta-info'>Evaluación retrospectiva en histórico continuo hasta 2024-08-05. Modelo con menor error: <strong>Suavizamiento simple</strong> (MAE: $14.86 vs. $14.86 repitiendo último precio).</p><table><thead><tr><th scope='col'>Modelo Econométrico</th><th scope='col'>Error Medio (MAE)</th><th scope='col'>RMSE</th><th scope='col'>Error % (MAPE)</th></tr></thead><tbody><tr><td>Suavizamiento simple</td><td>$14.86 MXN/kg</td><td>$15.54</td><td>18.3%</td></tr><tr><td>Holt</td><td>$32.97 MXN/kg</td><td>$34.92</td><td>40.6%</td></tr><tr><td>ARIMA</td><td>$14.86 MXN/kg</td><td>$15.54</td><td>18.3%</td></tr><tr><td>Holt-Winters</td><td>$27.19 MXN/kg</td><td>$28.70</td><td>33.5%</td></tr></tbody></table><h3>📈 Proyección de Precios Mayoristas (Próximas Semanas)</h3><table><thead><tr><th scope='col'>Semana de Pronóstico</th><th scope='col'>Precio Estimado</th><th scope='col'>Rango Mínimo (IC 95%)</th><th scope='col'>Rango Máximo (IC 95%)</th></tr></thead><tbody><tr><td>2024-08-12</td><td>$76.11 MXN/kg</td><td>$67.22 MXN/kg</td><td>$95.00 MXN/kg</td></tr><tr><td>2024-08-19</td><td>$76.11 MXN/kg</td><td>$63.33 MXN/kg</td><td>$98.33 MXN/kg</td></tr><tr><td>2024-08-26</td><td>$76.11 MXN/kg</td><td>$61.67 MXN/kg</td><td>$102.81 MXN/kg</td></tr><tr><td>2024-09-02</td><td>$76.11 MXN/kg</td><td>$58.32 MXN/kg</td><td>$108.33 MXN/kg</td></tr><tr><td>2024-09-09</td><td>$76.11 MXN/kg</td><td>$57.75 MXN/kg</td><td>$111.72 MXN/kg</td></tr><tr><td>2024-09-16</td><td>$76.11 MXN/kg</td><td>$54.99 MXN/kg</td><td>$115.57 MXN/kg</td></tr><tr><td>2024-09-23</td><td>$76.11 MXN/kg</td><td>$55.00 MXN/kg</td><td>$120.00 MXN/kg</td></tr><tr><td>2024-09-30</td><td>$76.11 MXN/kg</td><td>$53.88 MXN/kg</td><td>$126.11 MXN/kg</td></tr></tbody></table></section>
+
+</main>
+<footer>
+    <strong>Trusted Data Lab · Observatorio del Aguacate Hass</strong><br>
+    Dataset Curado bajo Licencia Abierta Creative Commons Attribution 4.0 International (CC BY 4.0)<br>
+    Autor: Aldo Israel Solórzano Sánchez · Tecnológico Nacional de México
+</footer>
+</body>
+</html>
